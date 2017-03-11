@@ -72,7 +72,6 @@ function insertPost(){
     global $con;
     global $user_id;
     if(isset($_POST['sub'])){
-
         $title = addslashes($_POST['title']);
         $content = addslashes($_POST['content']);
         $topic = $_POST['topic'];

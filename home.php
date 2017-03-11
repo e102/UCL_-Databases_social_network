@@ -26,6 +26,9 @@ else {
                 <textarea cols="72  " rows="4" name="content" placeholder="Write Description" required="required"></textarea><br>
                 <input type="submit" name="sub" value="Post to Timeline"/>
             </form>
+            <?php
+            insertPost();
+            ?>
             <div id="posts">
                 <h3>Most Recent Discussions</h3>
                 <?php
