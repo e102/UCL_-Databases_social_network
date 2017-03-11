@@ -21,13 +21,11 @@ else {
         <div id="content_timeline">
             <form action="home.php?id=<?php echo $user_id; ?>" method="post" id="f">
                 <h2>What's on your mind?</h2>
-                <input type="text" name="title" placeholder="Write a Title" required="required"/><br></br>
-                <textarea cols="72  " rows="4" name="content" placeholder="Write Description"></textarea><br></br>
+                <input type="text" name="title" placeholder="Write a Title" required="required"/><br>
+                <input type="text" name="topic" placeholder="What's it about" required="required"/><br>
+                <textarea cols="72  " rows="4" name="content" placeholder="Write Description" required="required"></textarea><br>
                 <input type="submit" name="sub" value="Post to Timeline"/>
             </form>
-            <?php
-            insertPost();
-            ?>
             <div id="posts">
                 <h3>Most Recent Discussions</h3>
                 <?php

@@ -75,12 +75,6 @@ function insertPost(){
 
         $title = addslashes($_POST['title']);
         $content = addslashes($_POST['content']);
-
-        if($content == ''){
-            echo"<h2>Please enter topic description</h2>";
-            exit();
-        }
-
         $topic = $_POST['topic'];
 
         $insert = "insert into posts (user_id, topic_id,post_title,post_content,post_date) 
