@@ -2,7 +2,7 @@
 
 global $con;
 
-$friend_requests = "select * from friends where requestReceiverID='$user_id' and verified='no'";
+$friend_requests = "select * from friends where requestReceiverID='$user_id' and verified='no' and ignored!='1'";
 $run_requests = mysqli_query($con, $friend_requests);
 
 while ($row = mysqli_fetch_array($run_requests)) {
@@ -21,10 +21,8 @@ while ($row = mysqli_fetch_array($run_requests)) {
             <p><a href='user_profile.php?u_id=$user_id'><img src='user/user_images/$user_image' width='50' height='50'></a></p>
             <h3><a href='user_profile.php?u_id=$user_id'>$user_name</a></h3>
             <a href='accept_request.php?u_id=$user_id'><button>Accept request</button></a>
-            
+            <a href='ignore_request.php?u_id=$user_id'><button>Ignore request</button></a>
             </div></br>
           ";
 }
-
-
 ?>
