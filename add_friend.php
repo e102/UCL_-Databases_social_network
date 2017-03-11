@@ -25,18 +25,25 @@ else {
                 <?php
                 if (isset($_GET['u_id'])) {
 
-                    $id = $_GET['u_id'];
+                    $target_user_id = $_GET['u_id'];
 
-                    $user = $_SESSION['user_email'];
-                    $get_user = "select * from users where user_email = '$user'";
+                    $current_user_email = $_SESSION['user_email'];
+                    echo "<script>var email = <?php echo $current_user_email ?>; alert('current user email = ' + email)</script>";
+                    $get_user = "select * from users where user_email = '$current_user_email'";
                     $run_user = mysqli_query($con, $get_user);
                     $row = mysqli_fetch_array($run_user);
                     $user_id = $row['user_id'];
 
-                    echo "<h3>Friend request sent</h3>";
-                    $insert = "insert into friends (requestSenderID, requestReceiverID, verified) values ('$user_id','$id','no')";
-
-                    $run = mysqli_query($con, $insert);
+                    //A user shouldn't be able to friend themselves
+                    if ($target_user_id == $user_id) {
+                        echo "<script>alert('You cannot friend yourself!');</script>";
+                        echo "<script>window.open('home.php','_self')</script>";
+                    }
+                    else {
+                        $insert = "insert into friends (requestSenderID, requestReceiverID, verified) values ('$user_id','$target_user_id','no')";
+                        $run = mysqli_query($con, $insert);
+                        echo "<h3>Friend request sent</h3>";
+                    }
 
                 }
                 ?>
