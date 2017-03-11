@@ -18,7 +18,7 @@
     $run_posts = mysqli_query($con, $user_posts);
     $numberPosts = mysqli_num_rows($run_posts);
 
-    $friend_requests = "select * from friends where requestReceiverID='$user_id' and verified='no'";
+    $friend_requests = "select * from friends where requestReceiverID='$user_id' and verified='no' and ignored = '0'";
     $run_requests = mysqli_query($con, $friend_requests);
     if ($run_requests == null) {
         $numberRequests = 0;
