@@ -25,7 +25,8 @@ if (isset($_POST['sign_up'])) {
     if (strlen($pass) < 8) {
         echo "<script>alert('Password should be minimum of 8 characters!') </script>";
         exit();
-    } else {
+    }
+    else {
 
         $insert = "insert into users (user_name,user_pass,user_email,user_country,user_gender,user_bday,
                         user_image,register_date,last_login,status,posts) values ('$name','$pass','$email','$country','$gender'
@@ -36,7 +37,8 @@ if (isset($_POST['sign_up'])) {
 
             echo "<script>alert('Registration successful!') </script>";
             echo "<script>window.open('home.php','_self')</script>";
-        } else {
+        }
+        else {
             echo "<script>alert('Registration unsuccessful!') </script>";
         }
     }

@@ -1,19 +1,20 @@
 <?php
 session_start();
-include ("includes/connection.php");
-include ("functions/functions.php");
-include ("template/Main/header.php");
+include("includes/connection.php");
+include("functions/functions.php");
+include("template/Main/header.php");
 
-if(!isset($_SESSION['user_email'])){
+if (!isset($_SESSION['user_email'])) {
     header("location: index.php");
-} else {
+}
+else {
 
     ?>
 
     <div class="content">
         <!-- user timeline starts -->
         <div id="user_timeline">
-            <?php include ("template/Main/user_details.php");?>
+            <?php include("template/Main/user_details.php"); ?>
         </div>
         <!-- user timeline ends -->
         <!-- content timeline starts -->
@@ -29,7 +30,7 @@ if(!isset($_SESSION['user_email'])){
 
                 <?php
                 $select_messages = "select * from messages where receiver = '$user_id'";
-                $run = mysqli_query($con,$select_messages);
+                $run = mysqli_query($con, $select_messages);
                 $count_msg = mysqli_num_rows($run);
 
                 while ($row = mysqli_fetch_array($run)) {
@@ -42,48 +43,48 @@ if(!isset($_SESSION['user_email'])){
                     $msg_date = $row['msg_date'];
 
                     $get_sender = "select * from users where user_id ='$sender' ORDER BY 1 DESC ";
-                    $run_sender = mysqli_query($con,$get_sender);
-                    $row=mysqli_fetch_array($run_sender);
+                    $run_sender = mysqli_query($con, $get_sender);
+                    $row = mysqli_fetch_array($run_sender);
 
                     $sender_name = $row['user_name'];
 
-                ?>
+                    ?>
 
-                <tr align="center">
-                    <td><a href="user_profile.php?u_id=<?php echo $sender;?>"> <?php echo $sender_name;?></a></td>
-                    <td>
-                        <a href="my_messages.php?msg_id=<?php echo $msg_id;?>"> <?php echo $msg_sub;?></a>
-                    </td>
-                    <td><?php echo $msg_date;?></td>
-                    <td><a href="my_messages.php?msg_id=<?php echo $msg_id;?>">Reply</a></td>
-                </tr>
+                    <tr align="center">
+                        <td><a href="user_profile.php?u_id=<?php echo $sender; ?>"> <?php echo $sender_name; ?></a></td>
+                        <td>
+                            <a href="my_messages.php?msg_id=<?php echo $msg_id; ?>"> <?php echo $msg_sub; ?></a>
+                        </td>
+                        <td><?php echo $msg_date; ?></td>
+                        <td><a href="my_messages.php?msg_id=<?php echo $msg_id; ?>">Reply</a></td>
+                    </tr>
 
-                <?php  } ?>
+                <?php } ?>
             </table>
 
             <?php
-                if(isset($_GET['msg_id'])){
-                    $get_id = $_GET['msg_id'];
+            if (isset($_GET['msg_id'])) {
+                $get_id = $_GET['msg_id'];
 
-                    $sel_message = "select * from messages where msg_id='$msg_id'";
-                    $run_message = mysqli_query($con,$sel_message);
+                $sel_message = "select * from messages where msg_id='$msg_id'";
+                $run_message = mysqli_query($con, $sel_message);
 
-                    $row = mysqli_fetch_array($run_message);
+                $row = mysqli_fetch_array($run_message);
 
-                    $msg_subject = $row['msg_sub'];
-                    $msg_topic = $row['msg_topic'];
+                $msg_subject = $row['msg_sub'];
+                $msg_topic = $row['msg_topic'];
 
-                    echo "
+                echo "
                     <br/><hr>
                     <h2>$msg_subject:</h2>
                     <h3>$sender_name:</h3>
                     <p></p>
                     ";
-                }
+            }
             ?>
 
         </div>
-    <!-- content area ends -->
+        <!-- content area ends -->
     </div>
     <!-- container ends -->
 

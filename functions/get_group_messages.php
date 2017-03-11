@@ -1,7 +1,7 @@
 <?php
 global $con;
 
-if(isset($_GET['group_id'])) {
+if (isset($_GET['group_id'])) {
     //echo "<script>alert('asubgalusb')</script>";
 
     $group_id = $_GET['group_id'];

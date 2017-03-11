@@ -3,13 +3,13 @@
 global $con;
 
 $friend_requests = "select * from friends where requestReceiverID='$user_id' and verified='no'";
-$run_requests = mysqli_query($con,$friend_requests);
+$run_requests = mysqli_query($con, $friend_requests);
 
-while($row = mysqli_fetch_array($run_requests)) {
+while ($row = mysqli_fetch_array($run_requests)) {
 
     $user_id = $row['requestSenderID'];
     $user_query = "select * from users where user_id='$user_id'";
-    $run_query = mysqli_query($con,$user_query);
+    $run_query = mysqli_query($con, $user_query);
     $row_user = mysqli_fetch_array($run_query);
 
     $user_name = $row_user['user_name'];

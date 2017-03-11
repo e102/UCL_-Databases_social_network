@@ -44,7 +44,7 @@ if(!isset($_SESSION['user_email'])){
                     ?>
 
                     <tr align="center">
-                        <td><a href="group_messages.php?group_id=<?php echo $group_id;?>"> <?php echo $group_name;?></a></td>
+                        <td><a href="group_messages.php?group_id=<?php echo $group_id; ?>"> <?php echo $group_name;?></a></td>
                     </tr>
 
                 <?php  } ?>

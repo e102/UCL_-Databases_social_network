@@ -1,19 +1,20 @@
 <?php
 session_start();
-include ("includes/connection.php");
-include ("functions/functions.php");
-include ("template/Main/header.php");
+include("includes/connection.php");
+include("functions/functions.php");
+include("template/Main/header.php");
 
-if(!isset($_SESSION['user_email'])){
+if (!isset($_SESSION['user_email'])) {
     header("location: index.php");
-} else {
+}
+else {
 
     ?>
 
     <div class="content">
         <!-- user timeline starts -->
         <div id="user_timeline">
-            <?php include ("template/Main/user_details.php");?>
+            <?php include("template/Main/user_details.php"); ?>
         </div>
         <!-- user timeline ends -->
         <!-- content timeline starts -->
@@ -30,8 +31,8 @@ if(!isset($_SESSION['user_email'])){
             </form>
             <div id="posts">
                 <?php
-                    include ("functions/get_group_messages.php");
-                    include ("functions/insert_group_message.php");
+                include("functions/get_group_messages.php");
+                include("functions/insert_group_message.php");
                 ?>
             </div>
         </div>

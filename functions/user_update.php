@@ -10,12 +10,12 @@ if (isset($_POST['update'])) {
     $image = $_FILES['u_image']['name'];
     $image_tmp = $_FILES['u_image']['tmp_name'];
 
-    move_uploaded_file($image_tmp,"user/user_images/$image");
+    move_uploaded_file($image_tmp, "user/user_images/$image");
 
     $update = "update users set user_name='$name',user_pass='$pass',user_email='$email',user_image='$image' where user_id='$user_id'";
     $run_update = mysqli_query($con, $update);
 
-    if($run_update){
+    if ($run_update) {
         echo "<script>alert('Your profile is updated!)</script>";
         echo "<script>open.window('home.php','_self')</script>";
     }
