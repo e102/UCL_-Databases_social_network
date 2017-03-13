@@ -62,7 +62,7 @@ else {
 
                     $groupName = addslashes($_POST['groupName']);
 
-                    $insert = "insert into groups (group_name) values ('$groupName')";
+                    $insert = "insert into groups (group_name,owner_id) values ('$groupName','$user_id')";
                     $run = mysqli_query($con, $insert);
 
                     $select = "select * from groups where group_name = '$groupName'";
