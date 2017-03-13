@@ -33,7 +33,7 @@ else {
             <div id="posts">
                 <h3>Most Recent Discussions</h3>
                 <?php
-                    include ("functions/get_posts.php");
+                    include("functions/get_all_posts.php");
                 ?>
             </div>
         </div>
