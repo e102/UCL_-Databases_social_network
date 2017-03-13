@@ -23,32 +23,32 @@ else {
                 <input type="text" name="groupName" placeholder="Group name..." required="required"/>
                 <input type="submit" name="createGroup" value="Create group"/>
 
-            <?php
+                <?php
 
 
-            global $con;
+                global $con;
 
-            $user = $_SESSION['user_email'];
-            $get_user = "select * from users where user_email = '$user'";
-            $run_user = mysqli_query($con,$get_user);
-            $row = mysqli_fetch_array($run_user);
-            $user_id = $row['user_id'];
+                $user = $_SESSION['user_email'];
+                $get_user = "select * from users where user_email = '$user'";
+                $run_user = mysqli_query($con, $get_user);
+                $row = mysqli_fetch_array($run_user);
+                $user_id = $row['user_id'];
 
-            $get_users = "select * from friends where requestSenderID='$user_id' and verified='yes'";
-            $run_user = mysqli_query($con, $get_users);
+                $get_users = "select * from friends where requestSenderID='$user_id' and verified='yes'";
+                $run_user = mysqli_query($con, $get_users);
 
-            while($row = mysqli_fetch_array($run_user)) {
+                while ($row = mysqli_fetch_array($run_user)) {
 
-                $id = $row['requestReceiverID'];
+                    $id = $row['requestReceiverID'];
 
-                $get_friend = "select * from users where user_id='$id'";
-                $run_friend = mysqli_query($con, $get_friend);
-                $row_friend = mysqli_fetch_array($run_friend);
+                    $get_friend = "select * from users where user_id='$id'";
+                    $run_friend = mysqli_query($con, $get_friend);
+                    $row_friend = mysqli_fetch_array($run_friend);
 
-                $user_name = $row_friend['user_name'];
-                $user_image = $row_friend['user_image'];
+                    $user_name = $row_friend['user_name'];
+                    $user_image = $row_friend['user_image'];
 
-                echo "
+                    echo "
                   <div id='members'>
                     
                     <p><a href='user_profile.php?u_id=$user_id'><img src='user/user_images/$user_image' width='50' height='50'></a></p>
@@ -56,45 +56,47 @@ else {
                   
                   </div></br>
                   ";
-            }
+                }
 
-            if(isset($_POST['createGroup'])){
+                if (isset($_POST['createGroup'])) {
 
-                $groupName = addslashes($_POST['groupName']);
+                    $groupName = addslashes($_POST['groupName']);
 
-                $insert = "insert into groups (group_name) values ('$groupName')";
-                $run = mysqli_query($con, $insert);
+                    $insert = "insert into groups (group_name) values ('$groupName')";
+                    $run = mysqli_query($con, $insert);
 
-                $select = "select * from groups where group_name = '$groupName'";
-                $run = mysqli_query($con, $select);
-                $row = mysqli_fetch_array($run);
-                $group_id = $row['group_id'];
+                    $select = "select * from groups where group_name = '$groupName'";
+                    $run = mysqli_query($con, $select);
+                    $row = mysqli_fetch_array($run);
 
-                $user_com = $_SESSION['user_email'];
-                $get_com = "select * from users where user_email = '$user_com'";
-                $run_com = mysqli_query($con, $get_com);
-                $row_com = mysqli_fetch_array($run_com);
-                $user_com_id = $row_com['user_id'];
-                $user_com_name = $row_com['user_name'];
+                    $group_id = $row['group_id'];
 
-                $insert = "insert into group_members (group_id,user_id,user_name) values ('$group_id','$user_com_id','$user_com_name')";
-                $run = mysqli_query($con, $insert);
+                    $user_com = $_SESSION['user_email'];
+                    $get_com = "select * from users where user_email = '$user_com'";
+                    $run_com = mysqli_query($con, $get_com);
+                    $row_com = mysqli_fetch_array($run_com);
 
-                   foreach ($_POST['group_members'] as $member) {
+                    $user_com_id = $row_com['user_id'];
+                    $user_com_name = $row_com['user_name'];
 
-                       $get_com = "select * from users where user_name = '$member'";
-                       $run_com = mysqli_query($con,$get_com);
-                       $row_com = mysqli_fetch_array($run_com);
-                       $user_com_id = $row_com['user_id'];
+                    $insert = "insert into group_members (group_id,user_id,user_name) values ('$group_id','$user_com_id','$user_com_name')";
+                    $run = mysqli_query($con, $insert);
 
-                       $insert = "insert into group_members (group_id,user_id,user_name) values ('$group_id','$user_com_id','$member')";
+                    foreach ($_POST['group_members'] as $member) {
 
-                       $run = mysqli_query($con, $insert);
+                        $get_com = "select * from users where user_name = '$member'";
+                        $run_com = mysqli_query($con, $get_com);
+                        $row_com = mysqli_fetch_array($run_com);
+                        $user_com_id = $row_com['user_id'];
+
+                        $insert = "insert into group_members (group_id,user_id,user_name) values ('$group_id','$user_com_id','$member')";
+
+                        $run = mysqli_query($con, $insert);
                     }
 
 
-            }
-            ?>
+                }
+                ?>
             </form>
         </div>
         <!-- content timeline ends -->

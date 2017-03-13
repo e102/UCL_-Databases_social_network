@@ -31,7 +31,12 @@ else {
                 <?php
                 $select_messages = "select * from messages where receiver = '$user_id'";
                 $run = mysqli_query($con, $select_messages);
-                $count_msg = mysqli_num_rows($run);
+                if ($run == null) {
+                    $count_msg = 0;
+                }
+                else {
+                    $count_msg = mysqli_num_rows($run);
+                }
 
                 while ($row = mysqli_fetch_array($run)) {
 

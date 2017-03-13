@@ -1,19 +1,20 @@
 <?php
 session_start();
-include ("includes/connection.php");
-include ("functions/functions.php");
-include ("template/Main/header.php");
+include("includes/connection.php");
+include("functions/functions.php");
+include("template/Main/header.php");
 
-if(!isset($_SESSION['user_email'])){
+if (!isset($_SESSION['user_email'])) {
     header("location: index.php");
-} else {
+}
+else {
 
     ?>
 
     <div class="content">
         <!-- user timeline starts -->
         <div id="user_timeline">
-            <?php include ("template/Main/user_details.php");?>
+            <?php include("template/Main/user_details.php"); ?>
         </div>
         <!-- user timeline ends -->
         <!-- content timeline starts -->
@@ -28,34 +29,41 @@ if(!isset($_SESSION['user_email'])){
                 <?php
 
                 $select_groups = "select * from group_members where user_id = '$user_id'";
-                $run = mysqli_query($con,$select_groups);
-                $count_msg = mysqli_num_rows($run);
+                $run = mysqli_query($con, $select_groups);
+                if ($run == null) {
+                    $count_msg = 0;
+                }
+                else {
+                    $count_msg = mysqli_num_rows($run);
 
-                while ($row = mysqli_fetch_array($run)) {
+                    while ($row = mysqli_fetch_array($run)) {
 
-                    $group_id = $row['group_id'];
+                        $group_id = $row['group_id'];
 
-                    $get_group = "select * from groups where group_id ='$group_id'";
-                    $run_group = mysqli_query($con,$get_group);
-                    $row=mysqli_fetch_array($run_group);
+                        $get_group = "select * from groups where group_id ='$group_id'";
+                        $run_group = mysqli_query($con, $get_group);
+                        $row = mysqli_fetch_array($run_group);
 
-                    $group_name = $row['group_name'];
+                        $group_name = $row['group_name'];
 
-                    ?>
+                        ?>
 
-                    <tr align="center">
-                        <td><a href="group_messages.php?group_id=<?php echo $group_id; ?>"> <?php echo $group_name;?></a></td>
-                    </tr>
+                        <tr align="center">
+                            <td>
+                                <a href="group_messages.php?group_id=<?php echo $group_id; ?>"> <?php echo $group_name; ?></a>
+                            </td>
+                        </tr>
 
-                <?php  } ?>
+                    <?php }
+                } ?>
             </table>
 
             <?php
-            if(isset($_GET['msg_id'])){
+            if (isset($_GET['msg_id'])) {
                 $get_id = $_GET['msg_id'];
 
                 $sel_message = "select * from messages where msg_id='$msg_id'";
-                $run_message = mysqli_query($con,$sel_message);
+                $run_message = mysqli_query($con, $sel_message);
 
                 $row = mysqli_fetch_array($run_message);
 
