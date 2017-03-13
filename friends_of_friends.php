@@ -14,13 +14,21 @@ else {
     <div class="content">
         <!-- user timeline starts -->
         <div id="user_timeline">
-            <?php include("template/Main/user_details.php"); ?>
+            <?php include("template/Main/user_details.php") ?>
         </div>
         <!-- user timeline ends -->
         <!-- content timeline starts -->
         <div id="content_timeline">
 
+            <form method="get" action="results.php" id="form1">
+                <input type="text" name="user_query" placeholder="Search for friends"/>
+                <a href='functions/add_group_member.php?group_id=$group_id&user_name=$user_name&user_id=$user_id'>
+                    <button>Search</button>
+                </a>
+            </form>
+
             <div id="posts">
+
 
                 <?php
 
