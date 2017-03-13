@@ -31,40 +31,38 @@ else {
                 <?php
                 $select_messages = "select * from messages where receiver = '$user_id'";
                 $run = mysqli_query($con, $select_messages);
-                if ($run == null) {
-                    $count_msg = 0;
-                }
-                else {
+                if ($run != null) {
                     $count_msg = mysqli_num_rows($run);
-                }
 
-                while ($row = mysqli_fetch_array($run)) {
+                    while ($row = mysqli_fetch_array($run)) {
 
-                    $msg_id = $row['msg_id'];
-                    $sender = $row['sender'];
-                    $receiver = $row['receiver'];
-                    $msg_sub = $row['msg_sub'];
-                    $msg_topic = $row['msg_topic'];
-                    $msg_date = $row['msg_date'];
+                        $msg_id = $row['msg_id'];
+                        $sender = $row['sender'];
+                        $receiver = $row['receiver'];
+                        $msg_sub = $row['msg_sub'];
+                        $msg_topic = $row['msg_topic'];
+                        $msg_date = $row['msg_date'];
 
-                    $get_sender = "select * from users where user_id ='$sender' ORDER BY 1 DESC ";
-                    $run_sender = mysqli_query($con, $get_sender);
-                    $row = mysqli_fetch_array($run_sender);
+                        $get_sender = "select * from users where user_id ='$sender' ORDER BY 1 DESC ";
+                        $run_sender = mysqli_query($con, $get_sender);
+                        $row = mysqli_fetch_array($run_sender);
 
-                    $sender_name = $row['user_name'];
+                        $sender_name = $row['user_name'];
 
-                    ?>
+                        ?>
 
-                    <tr align="center">
-                        <td><a href="user_profile.php?u_id=<?php echo $sender; ?>"> <?php echo $sender_name; ?></a></td>
-                        <td>
-                            <a href="my_messages.php?msg_id=<?php echo $msg_id; ?>"> <?php echo $msg_sub; ?></a>
-                        </td>
-                        <td><?php echo $msg_date; ?></td>
-                        <td><a href="my_messages.php?msg_id=<?php echo $msg_id; ?>">Reply</a></td>
-                    </tr>
+                        <tr align="center">
+                            <td><a href="user_profile.php?u_id=<?php echo $sender; ?>"> <?php echo $sender_name; ?></a>
+                            </td>
+                            <td>
+                                <a href="my_messages.php?msg_id=<?php echo $msg_id; ?>"> <?php echo $msg_sub; ?></a>
+                            </td>
+                            <td><?php echo $msg_date; ?></td>
+                            <td><a href="my_messages.php?msg_id=<?php echo $msg_id; ?>">Reply</a></td>
+                        </tr>
 
-                <?php } ?>
+                    <?php }
+                } ?>
             </table>
 
             <?php

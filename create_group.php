@@ -83,7 +83,7 @@ else {
                     $run = mysqli_query($con, $insert);
 
                     foreach ($_POST['group_members'] as $member) {
-
+                        echo "<h2>FOREACH LOOP RUNNING!</h2>";
                         $get_com = "select * from users where user_name = '$member'";
                         $run_com = mysqli_query($con, $get_com);
                         $row_com = mysqli_fetch_array($run_com);
@@ -93,7 +93,6 @@ else {
 
                         $run = mysqli_query($con, $insert);
                     }
-
 
                 }
                 ?>
