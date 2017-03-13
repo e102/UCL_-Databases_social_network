@@ -1,12 +1,13 @@
 <?php
 session_start();
-include ("includes/connection.php");
-include ("functions/functions.php");
-include ("template/Main/header.php");
+include("includes/connection.php");
+include("functions/functions.php");
+include("template/Main/header.php");
 
-if(!isset($_SESSION['user_email'])){
+if (!isset($_SESSION['user_email'])) {
     header("location: index.php");
-} else {
+}
+else {
 
     ?>
     <!-- Content area starts -->
@@ -14,7 +15,7 @@ if(!isset($_SESSION['user_email'])){
         <!-- user timeline starts -->
         <div id="user_timeline">
             <div id="user_timeline">
-                <?php include ("template/Main/user_details.php");?>
+                <?php include("template/Main/user_details.php"); ?>
             </div>
         </div>
         <!-- user timeline ends -->
@@ -24,13 +25,13 @@ if(!isset($_SESSION['user_email'])){
             <?php
             global $con;
 
-            $get_users = "select * from users";
+            $get_users = "SELECT * FROM users";
 
             $run_user = mysqli_query($con, $get_users);
-            if(isset($_GET['group_id'])) {
+            if (isset($_GET['group_id'])) {
                 $group_id = $_GET['group_id'];
             }
-            while($row = mysqli_fetch_array($run_user)) {
+            while ($row = mysqli_fetch_array($run_user)) {
 
                 $user_id = $row['user_id'];
                 $user_name = $row['user_name'];
@@ -50,8 +51,8 @@ if(!isset($_SESSION['user_email'])){
             ?>
         </div>
         <?php
-            //include ("functions/add_group_member.php");
-        if(isset($_POST['add_member'])) {
+        //include ("functions/add_group_member.php");
+        if (isset($_POST['add_member'])) {
 
             $group_id = $_GET['group_id'];
             $user_id = $_GET['user_id'];

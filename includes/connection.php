@@ -6,7 +6,7 @@
  * Time: 10:29
  */
 
-$con = mysqli_connect("localhost","root","","social_network") or die("Connection was not established");
+$con = mysqli_connect("localhost", "root", "", "social_network") or die("Connection was not established");
 
 
 
