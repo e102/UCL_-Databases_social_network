@@ -18,8 +18,8 @@
                     <a href="home.php">
                         Home
                     </a>
-                    <a href="members.php">
-                        Members
+                    <a href="friends.php">
+                        Friends
                     </a>
                     <a href="create_group.php">
                         Create Group

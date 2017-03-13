@@ -1,6 +1,6 @@
 <?php
 
-$con = mysqli_connect("localhost","root","","social_network") or die("Connection was not established");
+include("../includes/connection.php");
 
     $group_id = $_GET['group_id'];
     $user_id = $_GET['user_id'];
@@ -12,7 +12,7 @@ $con = mysqli_connect("localhost","root","","social_network") or die("Connection
     if ($run) {
         echo "
               <script>alert('Member added!')</script>
-              echo \"<script>window.open('../user_posts.php','_self')</script>\";
+              <script>window.open('../group_messages.php?group_id=$group_id','_self')</script>;
         ";
     }
 

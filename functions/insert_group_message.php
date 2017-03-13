@@ -20,9 +20,9 @@ if (isset($_POST['submit_group_message'])) {
     $run_insert = mysqli_query($con, $insert);
 
     if ($run_insert) {
-        echo "<script>alert('Registration successful!') </script>";
+        echo "<script>location.reload()</script>";
     } else {
-        echo "<script>alert('Registration unsuccessful!') </script>";
+        //echo "<script>alert('Message not sent!') </script>";
     }
 
 

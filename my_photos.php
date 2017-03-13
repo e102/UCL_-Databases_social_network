@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 include ("includes/connection.php");
 include ("functions/functions.php");
@@ -22,10 +23,9 @@ if(!isset($_SESSION['user_email'])){
             <div id="posts">
                 <h3>All posts</h3>
                 <?php
-                    include ("functions/get_posts.php")
+                    include ("functions/user_photos.php")
                 ?>
             </div>
-
         </div>
         <!-- content timeline ends -->
     </div>
