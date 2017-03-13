@@ -38,7 +38,7 @@ else {
                 $row_user = mysqli_fetch_array($run);
 
                 if ($row_user){
-                    include ("functions/friend_posts.php");
+                    include ("functions/get_friends_of_friends.php");
                 } else {
                     userProfile();
                 }
