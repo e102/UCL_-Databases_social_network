@@ -111,7 +111,7 @@ body {
   width: 250px;
   float: left;
   height: 600px;
-  border-right: solid black 2px;
+  border: solid black 2px;
 }
 
 #content_timeline {

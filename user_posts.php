@@ -23,7 +23,7 @@ else {
             <div id="posts">
                 <h3>All posts</h3>
                 <?php
-                include("functions/get_current_user_posts.php")
+                include("functions/get_current_user_posts.php");
                 ?>
             </div>
 

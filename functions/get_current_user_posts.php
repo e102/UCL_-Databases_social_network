@@ -52,7 +52,7 @@ while ($row_posts = mysqli_fetch_array($run_posts)) {
         <a href='edit_post.php?post_id=$post_id' style='float:right;'>
             <button>Edit</button>
         </a>
-        <a href='delete_post.php?post_id=$post_id' style='float:right;'>
+        <a href='functions/delete_post.php?post_id=$post_id' style='float:right;'>
             <button>Delete</button>
         </a>
         </div>
