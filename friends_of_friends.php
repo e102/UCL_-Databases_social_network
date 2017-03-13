@@ -21,16 +21,18 @@ else {
         <div id="content_timeline">
 
             <form method="get" action="results.php" id="form1">
+
                 <input type="text" name="user_query" placeholder="Search for friends"/>
-                <a href='functions/add_group_member.php?group_id=$group_id&user_name=$user_name&user_id=$user_id'>
-                    <button>Search</button>
-                </a>
+                <input type="submit" name="search" value="Search"/>
+
             </form>
 
             <div id="posts">
 
 
                 <?php
+
+                $_SESSION['friend_user_id'] = $_GET['u_id'];
 
                 $u_id = $_GET['u_id'];
 
