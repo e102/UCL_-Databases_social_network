@@ -45,7 +45,7 @@ function getSingleTopic()
 
             echo "
             <div id='posts'>
-            
+
             <p><img src='user/user_images/$user_image' width='50' height='50'></p>
             <h3><a href='user_profile.php?user_id=$user_id'>$user_name</a></h3>
             <h3>$post_title</h3>
@@ -70,7 +70,7 @@ function insertPost()
         $content = addslashes($_POST['content']);
         $topic = $_POST['topic'];
 
-        $insert = "insert into posts (user_id, topic_id,post_title,post_content,post_date) 
+        $insert = "insert into posts (user_id, topic_id,post_title,post_content,post_date)
                    values ('$user_id','$topic','$title','$content',NOW())";
 
         $run = mysqli_query($con, $insert);
@@ -111,7 +111,7 @@ function userProfile(){
 
         echo "
         <div id='user_profile'>
-        
+
         <p><img src='user/user_images/$image' width='50' height='50'></p><br/>
         <p><strong>Name: $name</strong></p><br/>
         <p><strong>Name: $gender</strong></p><br/>
@@ -154,7 +154,7 @@ function userPosts()
 
             echo "
         <div id='posts'>
-        
+
         <p><img src='user/user_images/$user_image' width='50' height='50'></p>
         <h3><a href='user_profile.php?u_id=$user_id'>$user_name</a></h3>
         <h3>$post_title</h3>
@@ -206,14 +206,14 @@ function edit_post(){
 
         echo "
         <div id='posts'>
-        
+
         <p><img src='user/user_images/$user_image' width='50' height='50'></p>
         <h3><a href='user_profile.php?u_id=$user_id'>$user_name</a></h3>
         <h3>$post_title</h3>
         <p>$post_date</p>
         <p>$content</p>
-        
-        
+
+
         </div></br>
         ";
 
@@ -230,7 +230,7 @@ function edit_post(){
 
             $comment = $_POST['comment'];
 
-            $insert = "insert into comments (post_id,user_id,comment,comment_author,date) VALUES 
+            $insert = "insert into comments (post_id,user_id,comment,comment_author,date) VALUES
                         ('$post_id','$user_id','$comment','$user_com_name',NOW())";
 
             $run = mysqli_query($con, $insert);
@@ -269,12 +269,12 @@ function getFriends()
 
             echo "
             <div id='posts'>
-            
+
             <p><img src='user/user_images/$user_image' width='50' height='50'></p>
             <h3><a href='user_profile.php?u_id=$user_id'>$user_name</a></h3>
             <h3>$user_name</h3>
-            
-            
+
+
             </div></br>
             ";
         }
@@ -283,6 +283,32 @@ function getFriends()
     }
 }
 
+function recommendedFriends() {
+  global $con;
+  global $user_id;
+
+  $get_random = "select * from friends where requestSenderID='$user_id' order by rand() limit 5";
+  $run_random = mysqli_query($con, $get_random);
+
+  while ($row = mysqli_fetch_array($run_random)) {
+    $random_id = $row['requestReceiverID'];
+    $get_user = "select * from users where user_id='$random_id'";
+    $run_user = mysqli_query($con, $get_user);
+
+    while ($row_user = mysqli_fetch_array($run_user)) {
+        $user_name = $row_user['user_name'];
+        $user_image = $row_user['user_image'];
+        $user_id = $row_user['user_id'];
+
+        echo "
+        <div id='recommended'>
+        <p><img src='user/user_images/$user_image' width='50' height='50'></p>
+        <h3><a href='user_profile.php?u_id=$user_id'>$user_name</a></h3>
+        </div></br>
+        ";
+      }
+  }
+}
 
 
 ?>

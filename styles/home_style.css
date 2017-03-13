@@ -107,6 +107,13 @@ body {
 
 }
 
+#recommend {
+  width: 250px;
+  float: left;
+  height: 600px;
+  border-right: solid black 2px;
+}
+
 #content_timeline {
     float: right;
     width: 700px;
