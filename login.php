@@ -10,9 +10,10 @@ if (isset($_POST['login'])) {
     $run_user = mysqli_query($con, $get_user);
     $check = mysqli_num_rows($run_user);
     if ($check == 1) {
-        $_SESSION['user_email']=$email;
+        $_SESSION['user_email'] = $email;
         echo "<script>window.open('home.php','_self')</script>";
-    } else {
+    }
+    else {
         echo "<script>alert('Password or email is not correct')</script>";
     }
 }

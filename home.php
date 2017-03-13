@@ -1,27 +1,29 @@
 <?php
 session_start();
-include ("includes/connection.php");
-include ("functions/functions.php");
-include ("template/Main/header.php");
+include("includes/connection.php");
+include("functions/functions.php");
+include("template/Main/header.php");
 
-if(!isset($_SESSION['user_email'])){
+if (!isset($_SESSION['user_email'])) {
     header("location: index.php");
-} else {
+}
+else {
 
-?>
+    ?>
 
     <div class="content">
         <!-- user timeline starts -->
         <div id="user_timeline">
-            <?php include ("template/Main/user_details.php");?>
+            <?php include("template/Main/user_details.php"); ?>
         </div>
         <!-- user timeline ends -->
         <!-- content timeline starts -->
         <div id="content_timeline">
             <form action="" method="post" id="f" enctype="multipart/form-data">
                 <h2>What's on your mind?</h2>
-                <input type="text" name="title" placeholder="Write a Title" required="required"/><br></br>
-                <textarea cols="72" rows="4" name="content" placeholder="Write Description"></textarea><br></br>
+                <input type="text" name="title" placeholder="Write a Title" required="required"/><br>
+                <input type="text" name="topic" placeholder="What's it about" required="required"/><br>
+                <textarea cols="72" rows="4" name="content" required="required" placeholder="Write Description"></textarea><br>
                 <input type="file" name="optional_image"/>
                 <input type="submit" name="sub" value="Post to Timeline"/>
             </form>
@@ -38,9 +40,9 @@ if(!isset($_SESSION['user_email'])){
         <!-- content timeline ends -->
     </div>
     <!-- content area ends -->
-</div>
-<!-- container ends -->
+    </div>
+    <!-- container ends -->
 
-</body>
-</html>
+    </body>
+    </html>
 <?php } ?>

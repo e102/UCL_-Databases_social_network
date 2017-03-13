@@ -2,7 +2,7 @@
 
 <html>
 <head>
-    <title>Interwebz</title>
+    <title>Home</title>
     <link rel="stylesheet" href="styles/home_style.css" media="all"/>
 </head>
 <body>
