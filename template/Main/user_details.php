@@ -27,15 +27,25 @@
         $numberRequests = mysqli_num_rows($run_requests);
     }
 
-                $groups = "select * from group_members where user_id='$user_id'";
-                $run_groups = mysqli_query($con,$groups);
-                $numberGroups = mysqli_num_rows($run_groups);
+    $groups = "select * from group_members where user_id='$user_id'";
+    $run_groups = mysqli_query($con, $groups);
+    if ($run_groups == null) {
+        $numberGroups = 0;
+    }
+    else {
+        $numberGroups = mysqli_num_rows($run_groups);
+    }
 
-                $message = "select * from messages where receiver='$user_id' and status='unread'";
-                $run_messages = mysqli_query($con,$message);
-                $numberMessages = mysqli_num_rows($run_messages);
+    $message = "select * from messages where receiver='$user_id' and status='unread'";
+    $run_messages = mysqli_query($con, $message);
+    if ($run_messages == null) {
+        $numberMessages = 0;
+    }
+    else {
+        $numberMessages = mysqli_num_rows($run_messages);
+    }
 
-                echo "
+    echo "
                       <center><img src='user/user_images/$user_image' width='200px' height='200px'/></center>
                       <p><strong>Name: $user_name</strong></p>
                       <p><strong>Country: $user_country</strong></p>

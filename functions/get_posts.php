@@ -2,28 +2,26 @@
 global $con;
 
 $per_page = 5;
-if (isset($_GET['page'])){
+if (isset($_GET['page'])) {
     $page = $_GET['page'];
-} else {
+}
+else {
     $page = 1;
 }
 
-$start_from = ($page-1) * $per_page;
+$start_from = ($page - 1) * $per_page;
 //$get_posts = "select * from posts ORDER BY 1 DESC LIMIT $start_from,$per_page";
 
 $user = $_SESSION['user_email'];
 $get_user = "select * from users where user_email = '$user'";
-$run_user = mysqli_query($con,$get_user);
+$run_user = mysqli_query($con, $get_user);
 $row = mysqli_fetch_array($run_user);
 $user_id = $row['user_id'];
 
-//$get_posts = "SELECT post_id,user_id,post_title,post_content,post_date,post_photo_path FROM posts
-//              join friends on friends.requestSenderID=posts.user_id where friends.requestReceiverID='$user_id'";
-
 $get_posts = "select * from posts where user_id = '$user_id'";
-$run_posts = mysqli_query($con,$get_posts);
+$run_posts = mysqli_query($con, $get_posts);
 
-while($row_posts = mysqli_fetch_array($run_posts)){
+while ($row_posts = mysqli_fetch_array($run_posts)) {
 
     $post_id = $row_posts['post_id'];
     $user_id = $row_posts['user_id'];
@@ -33,12 +31,12 @@ while($row_posts = mysqli_fetch_array($run_posts)){
     $photo_path = $row_posts['post_photo_path'];
 
     $user = "select * from users where user_id='$user_id' and posts='yes'";
-    $run_user = mysqli_query($con,$user);
+    $run_user = mysqli_query($con, $user);
     $row_user = mysqli_fetch_array($run_user);
     $user_name = $row_user['user_name'];
     $user_image = $row_user['user_image'];
 
-    if ($photo_path != ''){
+    if ($photo_path != '') {
         echo "
         <div id='posts'>
         
@@ -59,7 +57,8 @@ while($row_posts = mysqli_fetch_array($run_posts)){
         </div>
         ";
 
-    } else {
+    }
+    else {
 
         echo "
         <div id='posts'>

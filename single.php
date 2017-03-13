@@ -22,7 +22,7 @@ else {
         <!-- content timeline starts -->
         <div id="content_timeline">
             <?php
-            single_post();
+            include("functions/single_post.php");
             ?>
         </div>
         <!-- content timeline ends -->
