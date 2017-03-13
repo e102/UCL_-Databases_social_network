@@ -22,7 +22,7 @@ while($row = mysqli_fetch_array($run_requests)) {
             <h3><a href='user_profile.php?u_id=$user_id'>$user_name</a></h3>
             <a href='accept_request.php?u_id=$user_id'><button>Accept request</button></a>
             
-            </div></br>
+          </div></br>
           ";
 }
 

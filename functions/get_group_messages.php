@@ -2,7 +2,6 @@
 global $con;
 
 if(isset($_GET['group_id'])) {
-    //echo "<script>alert('asubgalusb')</script>";
 
     $group_id = $_GET['group_id'];
 
@@ -16,10 +15,8 @@ if(isset($_GET['group_id'])) {
 
         echo "
         <div id='posts'>
-        
-        <h3><a href='user_profile.php?u_id=$user_id'>$user_name</a></h3>
-        <p>$message</p>
-        
+            <h3><a href='user_profile.php?u_id=$user_id'>$user_name</a></h3>
+            <p>$message</p>
         </div>
         ";
     }

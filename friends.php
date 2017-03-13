@@ -20,9 +20,9 @@ if(!isset($_SESSION['user_email'])){
             <!-- user timeline ends -->
             <!-- content timeline starts -->
             <div id="content_timeline">
-                <h2>All Members:</h2>
+                <h2>All Friends:</h2>
                 <?php
-                    getMembers();
+                    include ("functions/get_friends.php")
                 ?>
             </div>
             <!-- content timeline ends -->

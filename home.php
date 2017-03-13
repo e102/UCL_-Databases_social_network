@@ -18,19 +18,20 @@ if(!isset($_SESSION['user_email'])){
         <!-- user timeline ends -->
         <!-- content timeline starts -->
         <div id="content_timeline">
-            <form action="home.php?id=<?php echo $user_id;?>" method="post" id="f">
+            <form action="" method="post" id="f" enctype="multipart/form-data">
                 <h2>What's on your mind?</h2>
                 <input type="text" name="title" placeholder="Write a Title" required="required"/><br></br>
-                <textarea cols="72  " rows="4" name="content" placeholder="Write Description"></textarea><br></br>
+                <textarea cols="72" rows="4" name="content" placeholder="Write Description"></textarea><br></br>
+                <input type="file" name="optional_image"/>
                 <input type="submit" name="sub" value="Post to Timeline"/>
             </form>
             <?php
-            insertPost();
+                include ("functions/insert_post.php")
             ?>
             <div id="posts">
                 <h3>Most Recent Discussions</h3>
                 <?php
-                include ("functions/get_posts.php");
+                    include ("functions/get_posts.php");
                 ?>
             </div>
         </div>

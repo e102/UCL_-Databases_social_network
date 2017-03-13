@@ -23,6 +23,14 @@
                 $run_requests = mysqli_query($con,$friend_requests);
                 $numberRequests = mysqli_num_rows($run_requests);
 
+                $groups = "select * from group_members where user_id='$user_id'";
+                $run_groups = mysqli_query($con,$groups);
+                $numberGroups = mysqli_num_rows($run_groups);
+
+                $message = "select * from messages where receiver='$user_id' and status='unread'";
+                $run_messages = mysqli_query($con,$message);
+                $numberMessages = mysqli_num_rows($run_messages);
+
                 echo "
                       <center><img src='user/user_images/$user_image' width='200px' height='200px'/></center>
                       <p><strong>Name: $user_name</strong></p>
@@ -30,11 +38,12 @@
                       <p><strong>Last Login: $last_login</strong></p>
                       <p><strong>Member Since: $register_date</strong></p>
                       
-                      <p><a href='my_messages.php?u_id=$user_id'>My Messages</a></p>
+                      <p><a href='my_messages.php?u_id=$user_id'>My Messages ($numberMessages)</a></p>
                       <p><a href='user_posts.php?u_id=$user_id'>My Posts ($numberPosts)</a></p>
-                      <p><a href='my_groups.php?u_id=$user_id'>My Groups</a></p>
-                      <p><a href='edit_account.php?u_id=$user_id'>Edit My Account</a></p>
+                      <p><a href='my_photos.php?u_id=$user_id'>My Photos </a></p>                      
+                      <p><a href='my_groups.php?u_id=$user_id'>My Groups ($numberGroups)</a></p>                   
                       <p><a href='friend_requests.php?u_id=$user_id'>Friend requests ($numberRequests)</a></p>
+                      <p><a href='edit_account.php?u_id=$user_id'>Edit My Account</a></p>
                       <p><a href='logout.php'>Logout</a></p>
                       ";
                 ?>
