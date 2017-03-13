@@ -36,12 +36,11 @@ while ($row_posts = mysqli_fetch_array($run_posts)) {
     $user_name = $row_user['user_name'];
     $user_image = $row_user['user_image'];
 
-    if ($photo_path != '') {
-        echo "
-        <div id='posts'>
-        
-        <p><img src='user/user_images/$photo_path' width='50' height='50'></p>
-        <h3><a href='user_profile.php?u_id=$user_id'>$user_name</a></h3>
+    echo "<div id='posts'>";
+    if ($photo_path) {
+        echo "<p ><img src = 'user/user_images/$photo_path' width = '50' height = '50' ></p >";
+        }
+    echo "<h3><a href='user_profile.php?u_id=$user_id'>$user_name</a></h3>
         <h3>$post_title</h3>
         <p>$post_date</p>
         <p>$content</p>
@@ -55,30 +54,7 @@ while ($row_posts = mysqli_fetch_array($run_posts)) {
             <button>Delete</button>
         </a>
         </div>
-        ";
-
-    }
-    else {
-
-        echo "
-        <div id='posts'>
-        
-        <h3><a href='user_profile.php?u_id=$user_id'>$user_name</a></h3>
-        <h3>$post_title</h3>
-        <p>$post_date</p>
-        <p>$content</p>
-        <a href='single.php?post_id=$post_id' style='float:right;'>
-            <button>View</button>
-        </a>
-        <a href='edit_post.php?post_id=$post_id' style='float:right;'>
-            <button>Edit</button>
-        </a>
-        <a href='delete_post.php?post_id=$post_id' style='float:right;'>
-            <button>Delete</button>
-        </a>
-        </div>
-        ";
-    }
+    ";
 }
 
 ?>
