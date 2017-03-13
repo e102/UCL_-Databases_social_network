@@ -26,6 +26,7 @@ while ($row_posts = mysqli_fetch_array($run_posts)) {
     $post_id = $row_posts['post_id'];
     $user_id = $row_posts['user_id'];
     $post_title = $row_posts['post_title'];
+    $post_topic = $row_posts['post_topic'];
     $content = $row_posts['post_content'];
     $post_date = $row_posts['post_date'];
     $photo_path = $row_posts['post_photo_path'];
@@ -38,10 +39,11 @@ while ($row_posts = mysqli_fetch_array($run_posts)) {
 
     echo "<div id='posts'>";
     if ($photo_path) {
-        echo "<p ><img src = 'user/user_images/$photo_path' width = '50' height = '50' ></p >";
-        }
+        echo "<p><img src = 'user/user_images/$photo_path' width = '50' height = '50' ></p >";
+    }
     echo "<h3><a href='user_profile.php?u_id=$user_id'>$user_name</a></h3>
         <h3>$post_title</h3>
+        <p>Topic: $post_topic</p>
         <p>$post_date</p>
         <p>$content</p>
         <a href='single.php?post_id=$post_id' style='float:right;'>

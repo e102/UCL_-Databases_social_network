@@ -21,9 +21,9 @@ else {
         <div id="content_timeline">
             <form action="" method="post" id="f" enctype="multipart/form-data">
                 <h2>What's on your mind?</h2>
+                <input type="text" name="title" placeholder="Write a Title" required="required"/><br>
                 <input type="text" name="topic" placeholder="What's it about" required="required"/><br>
-                <input type="text" name="title" placeholder="Write a Title" required="required"/><br></br>
-                <textarea cols="72" rows="4" name="content" placeholder="Write Description"></textarea><br></br>
+                <textarea cols="72" rows="4" name="content" required="required" placeholder="Write Description"></textarea><br>
                 <input type="file" name="optional_image"/>
                 <input type="submit" name="sub" value="Post to Timeline"/>
             </form>
