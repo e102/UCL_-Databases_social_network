@@ -1,9 +1,8 @@
 <?php
 
-include("includes/connection.php");
+include("../includes/connection.php");
 
 if (isset($_GET['post_id'])) {
-
 
     $post_id = $_GET['post_id'];
     $get_post_owner = "select owner_id from posts where post_id = '$post_id'";
