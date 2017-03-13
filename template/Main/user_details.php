@@ -27,9 +27,8 @@
         $numberRequests = mysqli_num_rows($run_requests);
     }
 
-
     echo "
-                      <center><img src='user/user_images/$user_image' width='200px' height='200px'/></center>
+                      <img src='user/user_images/$user_image' width='200px' height='200px'/>
                       <p><strong>Name: $user_name</strong></p>
                       <p><strong>Country: $user_country</strong></p>
                       <p><strong>Last Login: $last_login</strong></p>

@@ -2,12 +2,13 @@
 
 $con = mysqli_connect("localhost", "root", "", "social_network") or die("Connection was not established");
 
-function getTopics(){
+function getTopics()
+{
     global $con;
-    $get_topics = "select * from topics";
-    $run_topics = mysqli_query($con,$get_topics);
+    $get_topics = "SELECT * FROM topics";
+    $run_topics = mysqli_query($con, $get_topics);
 
-    while($row=mysqli_fetch_array($run_topics)){
+    while ($row = mysqli_fetch_array($run_topics)) {
         $topic_id = $row['topic_id'];
         $topic_title = $row['topic_title'];
 
@@ -16,26 +17,28 @@ function getTopics(){
     }
 }
 
-function getSingleTopic(){
+function getSingleTopic()
+{
     global $con;
 
     $per_page = 5;
-    if (isset($_GET['page'])){
+    if (isset($_GET['page'])) {
         $page = $_GET['page'];
-    } else {
+    }
+    else {
         $page = 1;
     }
 
-    $start_from = ($page-1) * $per_page;
+    $start_from = ($page - 1) * $per_page;
 
-    if(isset($_GET['topic'])){
+    if (isset($_GET['topic'])) {
 
         $topic_id = $_GET['topic'];
 
         $get_posts = "select * from posts where topic_id = '$topic_id' ORDER BY 1 DESC LIMIT $start_from,$per_page";
-        $run_posts = mysqli_query($con,$get_posts);
+        $run_posts = mysqli_query($con, $get_posts);
 
-        while($row_posts = mysqli_fetch_array($run_posts)){
+        while ($row_posts = mysqli_fetch_array($run_posts)) {
 
             $post_id = $row_posts['post_id'];
             $user_id = $row_posts['user_id'];
@@ -44,7 +47,7 @@ function getSingleTopic(){
             $post_date = $row_posts['post_date'];
 
             $user = "select * from users where user_id='$user_id' and posts='yes'";
-            $run_user = mysqli_query($con,$user);
+            $run_user = mysqli_query($con, $user);
             $row_user = mysqli_fetch_array($run_user);
             $user_name = $row_user['user_name'];
             $user_image = $row_user['user_image'];
@@ -64,14 +67,15 @@ function getSingleTopic(){
             ";
         }
 
-        include ("pagination.php");
+        include("pagination.php");
     }
 }
 
-function insertPost(){
+function insertPost()
+{
     global $con;
     global $user_id;
-    if(isset($_POST['sub'])){
+    if (isset($_POST['sub'])) {
         $title = addslashes($_POST['title']);
         $content = addslashes($_POST['content']);
         $topic = $_POST['topic'];
@@ -79,20 +83,21 @@ function insertPost(){
         $insert = "insert into posts (user_id, topic_id,post_title,post_content,post_date) 
                    values ('$user_id','$topic','$title','$content',NOW())";
 
-        $run = mysqli_query($con,$insert);
+        $run = mysqli_query($con, $insert);
 
-        if($run){
+        if ($run) {
             echo "<h3>Posted to timeline</h3>";
             $update = "update users set posts = 'yes' where user_id='$user_id'";
-            $run_update = mysqli_query($con,$update);
+            $run_update = mysqli_query($con, $update);
         }
     }
 }
 
-function userProfile(){
+function userProfile()
+{
     global $con;
 
-    if(isset($_GET['u_id'])) {
+    if (isset($_GET['u_id'])) {
 
         $user_id = $_GET['u_id'];
 
@@ -108,13 +113,14 @@ function userProfile(){
         $last_login = $row['last_login'];
         $register_date = $row['register_date'];
 
-        if($gender == 'Male'){
+        if ($gender == 'Male') {
             $msg = "Send him a message";
-        } else {
+        }
+        else {
             $msg = "Send her a message";
         }
 
-            echo "
+        echo "
         <div id='user_profile'>
         
         <p><img src='user/user_images/$image' width='50' height='50'></p><br/>
@@ -133,13 +139,14 @@ function userProfile(){
 
 }
 
-function userPosts(){
+function userPosts()
+{
     global $con;
 
-    if(isset($_GET['u_id'])) {
+    if (isset($_GET['u_id'])) {
 
         $u_id = $_GET['u_id'];
-        $get_posts = "select * from posts where user_id='$u_id' ORDER BY 1 DESC";
+        $get_posts = "select * from posts where user_id='$u_id' ORDER BY post_date DESC";
         $run_posts = mysqli_query($con, $get_posts);
 
         while ($row_posts = mysqli_fetch_array($run_posts)) {
@@ -176,14 +183,15 @@ function userPosts(){
         </div>
         ";
 
-            include ("delete_post.php");
+            include("delete_post.php");
         }
 
     }
 }
 
-function single_post(){
-    if(isset($_GET['post_id'])) {
+function single_post()
+{
+    if (isset($_GET['post_id'])) {
         global $con;
         $get_id = $_GET['post_id'];
         $get_posts = "select * from posts where post_id='$get_id'";
@@ -204,7 +212,7 @@ function single_post(){
 
         $user_com = $_SESSION['user_email'];
         $get_com = "select * from users where user_email = '$user_com'";
-        $run_com = mysqli_query($con,$get_com);
+        $run_com = mysqli_query($con, $get_com);
         $row_com = mysqli_fetch_array($run_com);
         $user_com_name = $row_com['user_name'];
 
@@ -228,24 +236,25 @@ function single_post(){
         </form>
         ";
 
-        if(isset($_POST['reply'])){
+        if (isset($_POST['reply'])) {
 
             $comment = $_POST['comment'];
 
             $insert = "insert into comments (post_id,user_id,comment,comment_author,date) VALUES 
                         ('$post_id','$user_id','$comment','$user_com_name',NOW())";
 
-            $run = mysqli_query($con,$insert);
+            $run = mysqli_query($con, $insert);
 
-            if ($run){
+            if ($run) {
                 echo "<h2>Reply was added!</h2>";
             }
         }
     }
 }
 
-function edit_post(){
-    if(isset($_GET['post_id'])) {
+function edit_post()
+{
+    if (isset($_GET['post_id'])) {
         global $con;
         $get_id = $_GET['post_id'];
         $get_posts = "select * from posts where post_id='$get_id'";
@@ -266,7 +275,7 @@ function edit_post(){
 
         $user_com = $_SESSION['user_email'];
         $get_com = "select * from users where user_email = '$user_com'";
-        $run_com = mysqli_query($con,$get_com);
+        $run_com = mysqli_query($con, $get_com);
         $row_com = mysqli_fetch_array($run_com);
         $user_com_name = $row_com['user_name'];
 
@@ -290,25 +299,26 @@ function edit_post(){
         </form>
         ";
 
-        if(isset($_POST['reply'])){
+        if (isset($_POST['reply'])) {
 
             $comment = $_POST['comment'];
 
             $insert = "insert into comments (post_id,user_id,comment,comment_author,date) VALUES 
                         ('$post_id','$user_id','$comment','$user_com_name',NOW())";
 
-            $run = mysqli_query($con,$insert);
+            $run = mysqli_query($con, $insert);
 
-            if ($run){
+            if ($run) {
                 echo "<h2>Reply was added!</h2>";
             }
         }
     }
 }
 
-function getFriends(){
+function getFriends()
+{
 
-    if(isset($_GET['search'])) {
+    if (isset($_GET['search'])) {
 
         global $con;
 
@@ -318,7 +328,7 @@ function getFriends(){
 
         $run_user = mysqli_query($con, $get_users);
 
-        while($row_user = mysqli_fetch_array($run_user)) {
+        while ($row_user = mysqli_fetch_array($run_user)) {
 
             $user_name = $row_user['user_name'];
             $user_image = $row_user['user_image'];
@@ -343,19 +353,19 @@ function getFriends(){
         }
 
 
-
     }
 }
 
-function getMembers(){
+function getMembers()
+{
 
     global $con;
 
-    $get_users = "select * from users";
+    $get_users = "SELECT * FROM users";
 
     $run_user = mysqli_query($con, $get_users);
 
-    while($row = mysqli_fetch_array($run_user)) {
+    while ($row = mysqli_fetch_array($run_user)) {
 
 
         $user_id = $row['user_id'];
