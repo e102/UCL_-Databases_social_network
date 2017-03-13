@@ -15,7 +15,7 @@ if (isset($_GET['post_id'])) {
 
         if ($run_delete) {
             echo "<script>alert('This post has been deleted!')</script>";
-            echo "<script>window.open('../user_posts.php','_self')</script>";
+            echo "<script>window.open('../home.php','_self')</script>";
         }
         else {
             echo "<script>alert('Could not contact server')</script>";
