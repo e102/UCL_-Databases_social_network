@@ -10,10 +10,8 @@ if (isset($_GET['post_id'])) {
     $run_delete = mysqli_query($con, $delete_post);
 
     if ($run_delete) {
-
         echo "<script>alert('This post has been deleted!')</script>";
-        echo "<script>window.open('group_messages.php?group_id=$group_id','_self')</script>";
-
+        echo "<script>window.open('../user_posts.php','_self')</script>";
     }
 }
 
