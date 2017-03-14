@@ -297,8 +297,9 @@ function recommendedFriends() {
   global $con;
   global $user_id;
 
-  $get_set = "select * from friends where requestSenderID='$user_id' order by rand() limit 5";
+  $get_set = "select * from friends where requestSenderID='$user_id' order by rand()";
   $run_set = mysqli_query($con, $get_set);
+
   while($row_set = mysqli_fetch_array($run_set)) {
     $row_id = $row_set['requestReceiverID'];
     $get_random = "select * from friends where requestSenderID='$row_id'";
@@ -306,8 +307,11 @@ function recommendedFriends() {
 
     while ($row = mysqli_fetch_array($run_random)) {
       $random_id = $row['requestReceiverID'];
-      $get_user = "select * from users where user_id='$random_id'";
+      $get_user = "select * from users where user_id='$random_id' limit 5";
       $run_user = mysqli_query($con, $get_user);
+      $get_num = "select * from users where user_id='$random_id'";
+      $run_num = mysqli_query($con, $get_num);
+      $mutual_friends = mysqli_num_rows($run_num);
 
       while ($row_user = mysqli_fetch_array($run_user)) {
           $user_name = $row_user['user_name'];
@@ -322,7 +326,7 @@ function recommendedFriends() {
           echo "
           <div id='recommended'>
           <p><img src='user/user_images/$user_image' width='50' height='50'></p>
-          <h3><a href='user_profile.php?u_id=$user_id'>$user_name</a></h3>
+          <h3><a href='user_profile.php?u_id=$user_id'>$user_name ($mutual_friends)</a></h3>
           </div></br>
           ";
         }
