@@ -29,8 +29,8 @@ if (isset($_POST['sign_up'])) {
     else {
 
         $insert = "insert into users (user_name,user_pass,user_email,user_country,user_gender,user_bday,
-                        user_image,register_date,last_login,status,posts) values ('$name','$pass','$email','$country','$gender'
-                        ,'$b_day','default.jpg',NOW(),NOW(),'$status','$posts')";
+                        user_image,register_date,last_login,status,posts, profile_is_private) values ('$name','$pass','$email','$country','$gender'
+                        ,'$b_day','default.jpg',NOW(),NOW(),'$status','$posts',0)";
         $run_insert = mysqli_query($con, $insert);
         if ($run_insert) {
             $_SESSION['user_email'] = $email;
