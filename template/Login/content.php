@@ -1,7 +1,5 @@
 <div id="content">
-    <div>
-        <img src="image/image.png" style="float:left;margin-left: -80px"/>
-    </div>
+    
     <div id="form2">
         <form action="" method="post">
             <h2>Sign Up Here</h2>
@@ -71,8 +69,8 @@
                 </tr>
                 <tr>
                     <td align="right" colspan="6">
-                        <button name="sign_up">Sign up</button>
-                    </td>
+                        <button name="sign_up" class="btn-white btn-small">Sign up</button>
+                    </td>   
 
                 </tr>
             </table>

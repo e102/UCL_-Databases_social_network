@@ -133,11 +133,21 @@ select {
     padding: 10px;
     width: 1000px;
     height: 60px;
+    color: white;
+    font-family: sans-serif;
+}
+
+#ucl_logo {
+    float: left;;
+    height: 30px;
+    width:100px;
+    
 }
 
 #form1 {
     float: right;
     line-height: 30px;
+    font-family: sans-serif;
 }
 
 input[type="text"], input[type="password"], {
@@ -154,11 +164,13 @@ input[type="text"], input[type="password"], {
 #content {
     width: 1000px;
     margin: 0 auto;
+    font-family: sans-serif;
 }
 
 #form2 {
-    float: right;
-    margin-top: 20px;
+    margin: 0 auto;
+    margin-top: 100px;
+    width:250px;
 }
 
 #form2 select {
@@ -184,6 +196,8 @@ input[type="text"], input[type="password"], {
     background: black;
     border: 5px light-grey;
     clear: both;
+    color: white;
+    font-family: sans-serif;
 }
 
 

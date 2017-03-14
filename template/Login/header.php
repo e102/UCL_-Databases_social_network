@@ -12,13 +12,13 @@
     <div id="head_wrap">
         <!-- Header starts-->
         <div id="header">
-            <img src="images/logo.png" style="float:left;width:100px;height:90px; padding:5px"/>
+            <img src="images/logo.png" id="ucl_logo"/>
             <form method="post" action="" id="form1">
                 <strong>Email:</strong>
                 <input type="email" name="email" placeholder="Email" required="required"/>
                 <strong>Password:</strong>
                 <input type="password" name="pass" placeholder="******" required="required"/>
-                <button name="login">Login</button>
+                <button name="login" class="btn-white btn-small">Login</button>
             </form>
         </div>
         <!-- Header ends-->
