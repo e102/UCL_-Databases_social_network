@@ -17,11 +17,9 @@ if (isset($_POST['update'])) {
     $run_update = mysqli_query($con, $update);
 
     if ($run_update) {
-        echo "<script>alert('Your profile is updated!)</script>";
-        echo "<script>open.window('home.php','_self')</script>";
+        echo "<script>alert('Your profile is updated!')</script>";
+        echo "<script>window.open('home.php','_self')</script>";
     }
-
-
 }
 
 ?>
