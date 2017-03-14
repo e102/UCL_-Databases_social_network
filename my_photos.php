@@ -21,9 +21,15 @@ if(!isset($_SESSION['user_email'])){
         <div id="content_timeline">
 
             <div id="posts">
-                <h3>All posts</h3>
+                <h3>All Albums</h3>
+                <h3>All Photos</h3>
+                <form action="" method="post" id="photo_form" enctype="multipart/form-data">
+                    <input type="file" name="photo" required="required"/>
+                    <input type="submit" name="submit_photo" value="Upload photo"/>
+                </form>
                 <?php
-                    include ("functions/user_photos.php")
+                include("functions/insert_photo.php");
+                include ("functions/user_photos.php");
                 ?>
             </div>
         </div>
