@@ -291,7 +291,7 @@ function recommendedFriends() {
   $run_set = mysqli_query($con, $get_set);
   while($row_set = mysqli_fetch_array($run_set)) {
     $row_id = $row_set['requestReceiverID'];
-    $get_random = "select * from friends where requestSenderID='$row_id' order by rand() limit 5";
+    $get_random = "select * from friends where requestSenderID='$row_id'";
     $run_random = mysqli_query($con, $get_random);
 
     while ($row = mysqli_fetch_array($run_random)) {
