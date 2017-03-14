@@ -22,12 +22,12 @@ function getSingleTopic()
     global $con;
 
 
-    if(isset($_GET['topic'])){
+    if (isset($_GET['topic'])) {
 
         $topic_id = $_GET['topic'];
 
         $get_posts = "select * from posts where topic_id = '$topic_id' ORDER BY 1 DESC";
-        $run_posts = mysqli_query($con,$get_posts);
+        $run_posts = mysqli_query($con, $get_posts);
 
         while ($row_posts = mysqli_fetch_array($run_posts)) {
 
@@ -133,8 +133,9 @@ function userPosts()
     }
 }
 
-function edit_post(){
-    if(isset($_GET['post_id'])) {
+function edit_post()
+{
+    if (isset($_GET['post_id'])) {
         global $con;
         $get_id = $_GET['post_id'];
         $get_posts = "select * from posts where post_id='$get_id'";
@@ -206,18 +207,18 @@ function getFriends()
 
         $friend_name = $_GET['user_query'];
 
-        if($_SESSION['friend_user_id'] != ''){
+        if ($_SESSION['friend_user_id'] != '') {
             $user_id = $_SESSION['friend_user_id'];
             $get_users = "SELECT * FROM users join friends on users.user_id = friends.requestReceiverID and verified='yes' 
-                where friends.requestSenderID = '$user_id' and user_name like '%$friend_name%'";
+                where friends.requestSenderID = '$user_id' and user_name like '%$friend_name%' AND profile_is_private = 0";
             $run_user = mysqli_query($con, $get_users);
 
             $_SESSION['friend_user_id'] = '';
-        } else {
+        }
+        else {
             $get_users = "select * from users where user_name like '%$friend_name%'";
             $run_user = mysqli_query($con, $get_users);
         }
-
 
 
         while ($row_user = mysqli_fetch_array($run_user)) {
@@ -248,42 +249,43 @@ function getFriends()
     }
 }
 
-function recommendedFriends() {
-  global $con;
-  global $user_id;
+function recommendedFriends()
+{
+    global $con;
+    global $user_id;
 
-  $get_set = "select * from friends where requestSenderID='$user_id' order by rand() limit 5";
-  $run_set = mysqli_query($con, $get_set);
-  while($row_set = mysqli_fetch_array($run_set)) {
-    $row_id = $row_set['requestReceiverID'];
-    $get_random = "select * from friends where requestSenderID='$row_id'";
-    $run_random = mysqli_query($con, $get_random);
+    $get_set = "select * from friends where requestSenderID='$user_id' order by rand() limit 5";
+    $run_set = mysqli_query($con, $get_set);
+    while ($row_set = mysqli_fetch_array($run_set)) {
+        $row_id = $row_set['requestReceiverID'];
+        $get_random = "select * from friends where requestSenderID='$row_id'";
+        $run_random = mysqli_query($con, $get_random);
 
-    while ($row = mysqli_fetch_array($run_random)) {
-      $random_id = $row['requestReceiverID'];
-      $get_user = "select * from users where user_id='$random_id'";
-      $run_user = mysqli_query($con, $get_user);
+        while ($row = mysqli_fetch_array($run_random)) {
+            $random_id = $row['requestReceiverID'];
+            $get_user = "select * from users where user_id='$random_id'";
+            $run_user = mysqli_query($con, $get_user);
 
-      while ($row_user = mysqli_fetch_array($run_user)) {
-          $user_name = $row_user['user_name'];
-          $user_image = $row_user['user_image'];
-          $u_id = $row_user['user_id'];
+            while ($row_user = mysqli_fetch_array($run_user)) {
+                $user_name = $row_user['user_name'];
+                $user_image = $row_user['user_image'];
+                $u_id = $row_user['user_id'];
 
-          if($u_id==$user_id) {
-            echo "<h3></h3>";
-          }
+                if ($u_id == $user_id) {
+                    echo "<h3></h3>";
+                }
 
-          else {
-          echo "
+                else {
+                    echo "
           <div id='recommended'>
           <p><img src='user/user_images/$user_image' width='50' height='50'></p>
           <h3><a href='user_profile.php?u_id=$user_id'>$user_name</a></h3>
           </div></br>
           ";
+                }
+            }
         }
-      }
     }
-  }
 }
 
 
