@@ -13,8 +13,8 @@ if (isset($_POST['sub'])) {
     $image_tmp = $_FILES['optional_image']['tmp_name'];
     move_uploaded_file($image_tmp, "user/user_images/$image");
 
-    $insert = "insert into posts (user_id,post_title,post_topic,post_content,post_date,post_photo_path) 
-                   values ('$user_id','$title','$topic','$content',NOW(),'$image')";
+    $insert = "insert into posts (user_id,post_title,post_content,post_date,post_photo_path)
+                   values ('$user_id','$title','$content',NOW(),'$image')";
 
     $run = mysqli_query($con, $insert);
 
