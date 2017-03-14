@@ -15,6 +15,7 @@ else {
         <!-- user timeline starts -->
         <div id="user_timeline">
             <?php include("template/Main/user_details.php"); ?>
+          </br>
             <div id="recommend">
               <h3>People you may know:</h3>
             </br>
