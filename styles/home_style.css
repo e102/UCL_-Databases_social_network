@@ -29,7 +29,7 @@ footer, header, hgroup, menu, nav, section {
 
 body {
     line-height: 1;
-    background-color: #E6E6FA;
+    background-color: white;
 }
 
 h1 {
@@ -106,7 +106,7 @@ h5 {
 .container {
     margin: 0;
     padding: 0;
-    background-color: #E6E6FA;
+    background-color: white;
 }
 
 #head_wrap{
@@ -196,34 +196,34 @@ h5 {
 
 #f input {
     padding: 10px;
-    border: solid black 2px;
-    border-radius: 5px;
+    border: solid black 2px;    
+    border-radius: 20px;
 }
 
 #f textarea {
     padding: 10px;
     border: solid black 2px;
-    border-radius: 5px;
+    border-radius: 20px;
 }
 
 #posts {
-    width: 600px;
+    width: 500px;
     line-height: 20px;
     border: solid black 1px;
-    border-radius1px;
+    border-radius: 20px;
     font-family: sans-serif;
 }
 
 #reply textarea {
     padding: 10px;
     border: solid black 2px;
-    border-radius: 5px;
+    border-radius: 20px;
 }
 
 #reply input {
     padding: 10px;
     border: solid black 2px;
-    border-radius: 5px;
+    border-radius: 20px;
 }
 
 #comments {

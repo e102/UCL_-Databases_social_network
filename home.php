@@ -15,6 +15,7 @@ include("template/Main/header.php");
 if (!isset($_SESSION['user_email'])) {
     header("location: index.php");
 }
+
 else {
 
     ?>
@@ -37,19 +38,19 @@ else {
                 <h2>What's on your mind?</h2>
                 <input type="text" name="title" placeholder="Write a Title" required="required"/><br>
                 <textarea cols="72" rows="4" name="content" required="required" placeholder="Write Description"></textarea><br>
-                <p>visibility:</p><select name="is_private">
+                <p style="font-family: sans-serif">visibility:</p><select name="is_private">
                     <!--Goes into is_private field in database. 1 = true. 0 = false-->
                     <option value="1">Private</option>
                     <option value="0">Public</option>
                 </select><br><br>
                 <input type="file"  name="optional_image"/>
-                <input type="submit" class="btn-white btn-small" value="Post to Timeline"/>
+                <input type="submit"     class="btn-white btn-small" value="Post to Timeline"/>
             </form>
             <?php
                 include ("functions/insert_post.php")
             ?>
-            <div id="posts">
-                <h3>Most Recent Discussions</h3>
+            <div id="posts" style="padding: 10px;">
+                <h3 style="margin: 10px;" >Most Recent Discussions </h3>
                 <?php
                     include("functions/get_all_posts.php");
                 ?>

@@ -38,16 +38,16 @@ while ($row_posts = mysqli_fetch_array($run_posts)) {
 
     echo "<div id='posts'>";
     if ($photo_path) {
-        echo "<p><img src = 'user/user_images/$photo_path' width = '50' height = '50' ></p >";
+        echo "<p><img src = 'user/user_images/$photo_path' width = '50' height = '50'></p >";
     }
-    echo "<h3><a href='user_profile.php?u_id=$user_id'>$user_name</a></h3>
-        <h3>$post_title</h3>
-        <p>$post_date</p>
-        <p>$content</p>
-        <a href='single.php?post_id=$post_id' style='float:right;'>
+    echo "<h3><a style='padding-left:20px' href='user_profile.php?u_id=$user_id'>$user_name</a></h3>
+        <h3 style='padding-left:20px' >$post_title</h3>
+        <p style='padding-left:20px' >$post_date</p>
+        <p style='padding-left:20px' >$content</p>
+        <a href='single.php?post_id=$post_id'>
             <button>View</button>
         </a>
-        <a href='edit_post.php?post_id=$post_id' style='float:right;'>
+        <a href='edit_post.php?post_id=$post_id'>
             <button>Edit</button>
         </div>
     ";
