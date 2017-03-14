@@ -1,5 +1,10 @@
 <?php
-session_start();
+
+if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+    } 
+
 include("includes/connection.php");
 if (isset($_POST['login'])) {
 
