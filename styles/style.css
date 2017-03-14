@@ -28,51 +28,127 @@ footer, header, hgroup, menu, nav, section {
 }
 
 body {
-    line-height: 1;
-    background-color: #E6E6FA;
+    height: 1000px;
+    background-color: white;
 }
 
 .container {
     margin: 0;
     padding: 0;
-    background-color: #E6E6FA;
+    height: 1000px;
+    background-color: white;
 }
 
-#head_wrap {
+/* ==========================================================================
+Typography
+========================================================================== */
+
+h1 {
+  font-size: 60px; }
+
+h2 {
+    font:
+  font-size: 30px;
+  font-weight: 300;
+  color: #3D4351;
+  }
+
+h3 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #3D4351; }
+
+h4 {
+  font-size: 18px; }
+
+h5 {
+  font-size: 15px;
+  color: #3D4351;
+  text-transform: uppercase;
+  font-weight: 500; }
+
+.btn {
+  font-size: 13px;
+  border: solid 2px;
+  border-radius: 40px;
+  display: inline-block;
+  text-transform: uppercase; }
+
+.btn:hover, .btn:focus {
+  color: #fff;
+  border-color: #FF5274;
+  background-color: #FF5274; }
+
+.btn-white {
+  font-size: 13px;
+  border: solid 2px;
+  border-radius: 40px;
+  display: inline-block;
+  border-color: white; }
+
+.btn-white:hover, .btn-white:focus {
+  color: #FF5274;
+  border-color: #FF5274; }
+
+.btn-fill {
+  color: #fff;
+  border: solid 2px #FF5274;
+  border-radius: 40px;
+  display: inline-block;
+  text-transform: uppercase;
+  background-color: #FF5274; }
+
+.btn-fill:hover, .btn-fill:focus {
+  color: #fff;
+  background-color: #D7405D;
+  border-color: #D7405D; }
+
+.btn-small {
+  padding: 8px 40px; }
+
+.btn-large {
+  padding: 15px 40px; }
+
+.btn-margin-right {
+  margin-right: 20px; }
+  
+select {
+  height: 20px;
+  margin: 0;
+  padding: 10px;
+  width:250px;
+}
+
+#head_wrap{
     width: 100%;
-    height: 100px;
+    height: 60px;
     margin: 0 auto;
-    border-bottom: 5px solid brown;
+    border-bottom: 2px light-grey;
     padding: 10px;
-    background: #1e90ff;
+    background: #000000;
 }
 
 #header {
     margin: 0 auto;
     padding: 10px;
     width: 1000px;
-    height: 100px;
+    height: 60px;
 }
 
 #form1 {
     float: right;
-    line-height: 100px;
+    line-height: 30px;
 }
 
-#form1 input {
-    width: 150px;
-    height: 20px;
-    padding: 10px;
-}
-
-#form1 button {
-    width: 100px;
-    padding: 10px;
-}
-
-#form1 button:hover {
-    background-color: blue;
-    color: white;
+input[type="text"], input[type="password"], {
+  background-color: #ffffff;
+  border-radius: 5px;
+  color: #ffffff;
+  font-family: sans-serif;
+  margin-bottom: 1em;
+  height:20px;
+  padding:10px;
+  border:1px solid black;
 }
 
 #content {
@@ -85,34 +161,11 @@ body {
     margin-top: 20px;
 }
 
-#form2 input {
-    width: 250px;
-    height: 20px;
-    padding: 10px;
-    border: 1px solid black;
-    border-radius: 5px;
-}
-
 #form2 select {
-    width: 270px;
+    width:150px;    
     padding: 10px;
     border: 1px solid black;
     border-radius: 5px;
-
-}
-
-#form2 button {
-    width: 270px;
-    padding: 10px;
-    margin-left: 30px;
-    border: 1px solid black;
-    border-radius: 5px;
-
-}
-
-#form2 button:hover {
-    background-color: crimson;
-    color: white;
 }
 
 #form2 h2 {
@@ -120,20 +173,19 @@ body {
     margin-left: 70px;
 }
 
+#form2 button {
+    width: 150px;
+}
+
 #footer {
     width: 100%;
     height: 40px;
     padding: 10px;
-    background: #1e90ff;
-    border: 5px solid brown;
+    background: black;
+    border: 5px light-grey;
     clear: both;
 }
 
-#footer h2 {
-    text-align: center;
-    padding-top: 3px;
-    color: white;
-}
 
 #menu strong {
     font-size: 20px;
