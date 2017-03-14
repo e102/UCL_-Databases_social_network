@@ -1,3 +1,11 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Social Network</title>
+    <link rel="stylesheet" href="styles/home_style.css" media="all"/>
+</head>
+<body>
+
 <?php
 session_start();
 include("includes/connection.php");
@@ -34,8 +42,8 @@ else {
                     <option value="1">Private</option>
                     <option value="0">Public</option>
                 </select><br><br>
-                <input type="file" name="optional_image"/>
-                <input type="submit" name="sub" value="Post to Timeline"/>
+                <input type="file"  name="optional_image"/>
+                <input type="submit" class="btn-white btn-small" value="Post to Timeline"/>
             </form>
             <?php
                 include ("functions/insert_post.php")

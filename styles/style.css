@@ -35,7 +35,6 @@ body {
 .container {
     margin: 0;
     padding: 0;
-    height: 1000px;
     background-color: white;
 }
 
@@ -117,6 +116,7 @@ select {
   margin: 0;
   padding: 10px;
   width:250px;
+  color: black;
 }
 
 #head_wrap{
@@ -200,8 +200,14 @@ input[type="text"], input[type="password"], {
     font-family: sans-serif;
 }
 
+#menu {
+    font-family: sans-serif;
+    color: white;
+
+}
 
 #menu strong {
     font-size: 20px;
     text-decoration: underline;
+    
 }
