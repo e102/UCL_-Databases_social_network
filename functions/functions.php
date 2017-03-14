@@ -297,9 +297,9 @@ function recommendedFriends() {
 
     while ($row = mysqli_fetch_array($run_random)) {
       $random_id = $row['requestReceiverID'];
-      $get_user = "select * from users where user_id='$random_id' limit 5";
+      $get_user = "select * from users where user_id='$random_id' and user_id!='$user_id' limit 5";
       $run_user = mysqli_query($con, $get_user);
-      $get_num = "select * from users where user_id='$random_id'";
+      $get_num = "select * from users where user_id='$random_id' and user_id!='$user_id'";
       $run_num = mysqli_query($con, $get_num);
       $mutual_friends = mysqli_num_rows($run_num);
 
