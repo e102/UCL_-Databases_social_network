@@ -29,6 +29,11 @@ else {
                 <h2>What's on your mind?</h2>
                 <input type="text" name="title" placeholder="Write a Title" required="required"/><br>
                 <textarea cols="72" rows="4" name="content" required="required" placeholder="Write Description"></textarea><br>
+                <p>visibility:</p><select name="is_private">
+                    <!--Goes into is_private field in database. 1 = true. 0 = false-->
+                    <option value="1">Private</option>
+                    <option value="0">Public</option>
+                </select><br><br>
                 <input type="file" name="optional_image"/>
                 <input type="submit" name="sub" value="Post to Timeline"/>
             </form>
