@@ -287,26 +287,37 @@ function recommendedFriends() {
   global $con;
   global $user_id;
 
-  $get_random = "select * from friends where requestSenderID='$user_id' order by rand() limit 5";
-  $run_random = mysqli_query($con, $get_random);
+  $get_set = "select * from friends where requestSenderID='$user_id' order by rand() limit 5";
+  $run_set = mysqli_query($con, $get_set);
+  while($row_set = mysqli_fetch_array($run_set)) {
+    $row_id = $row_set['requestReceiverID'];
+    $get_random = "select * from friends where requestSenderID='$row_id' order by rand() limit 5";
+    $run_random = mysqli_query($con, $get_random);
 
-  while ($row = mysqli_fetch_array($run_random)) {
-    $random_id = $row['requestReceiverID'];
-    $get_user = "select * from users where user_id='$random_id'";
-    $run_user = mysqli_query($con, $get_user);
+    while ($row = mysqli_fetch_array($run_random)) {
+      $random_id = $row['requestReceiverID'];
+      $get_user = "select * from users where user_id='$random_id'";
+      $run_user = mysqli_query($con, $get_user);
 
-    while ($row_user = mysqli_fetch_array($run_user)) {
-        $user_name = $row_user['user_name'];
-        $user_image = $row_user['user_image'];
-        $user_id = $row_user['user_id'];
+      while ($row_user = mysqli_fetch_array($run_user)) {
+          $user_name = $row_user['user_name'];
+          $user_image = $row_user['user_image'];
+          $u_id = $row_user['user_id'];
 
-        echo "
-        <div id='recommended'>
-        <p><img src='user/user_images/$user_image' width='50' height='50'></p>
-        <h3><a href='user_profile.php?u_id=$user_id'>$user_name</a></h3>
-        </div></br>
-        ";
+          if($u_id==$user_id) {
+            echo "<h3></h3>";
+          }
+
+          else {
+          echo "
+          <div id='recommended'>
+          <p><img src='user/user_images/$user_image' width='50' height='50'></p>
+          <h3><a href='user_profile.php?u_id=$user_id'>$user_name</a></h3>
+          </div></br>
+          ";
+        }
       }
+    }
   }
 }
 
