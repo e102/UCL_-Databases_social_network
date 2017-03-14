@@ -14,15 +14,25 @@ else {
     <div class="content">
         <!-- user timeline starts -->
         <div id="user_timeline">
-            <?php include("template/Main/user_details.php"); ?>
+            <?php include("template/Main/user_details.php") ?>
         </div>
         <!-- user timeline ends -->
         <!-- content timeline starts -->
         <div id="content_timeline">
 
+            <form method="get" action="results.php" id="form1">
+
+                <input type="text" name="user_query" placeholder="Search for friends"/>
+                <input type="submit" name="search" value="Search"/>
+
+            </form>
+
             <div id="posts">
 
+
                 <?php
+
+                $_SESSION['friend_user_id'] = $_GET['u_id'];
 
                 $u_id = $_GET['u_id'];
 
@@ -38,7 +48,7 @@ else {
                 $row_user = mysqli_fetch_array($run);
 
                 if ($row_user){
-                    include ("functions/friend_posts.php");
+                    include ("functions/get_friends_of_friends.php");
                 } else {
                     userProfile();
                 }

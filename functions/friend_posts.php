@@ -1,24 +1,6 @@
 <?php
-global $con;
 
-$per_page = 5;
-if (isset($_GET['page'])) {
-    $page = $_GET['page'];
-}
-else {
-    $page = 1;
-}
-
-$start_from = ($page - 1) * $per_page;
-//$get_posts = "select * from posts ORDER BY 1 DESC LIMIT $start_from,$per_page";
-
-$user = $_SESSION['user_email'];
-$get_user = "select * from users where user_email = '$user'";
-$run_user = mysqli_query($con, $get_user);
-$row = mysqli_fetch_array($run_user);
-$user_id = $row['user_id'];
-
-$get_posts = "select * from posts where user_id = '$user_id'";
+$get_posts = "select * from posts where user_id = '$u_id'";
 $run_posts = mysqli_query($con, $get_posts);
 
 while ($row_posts = mysqli_fetch_array($run_posts)) {
@@ -36,7 +18,10 @@ while ($row_posts = mysqli_fetch_array($run_posts)) {
     $user_name = $row_user['user_name'];
     $user_image = $row_user['user_image'];
 
-    echo "<div id='posts'>";
+    echo "<div id='posts'>
+            <a href='messages.php?u_id=$user_id'><button>Message $user_name</button></a>
+            <a href='friends_of_friends.php?u_id=$user_id'><button>Friends of $user_name</button></a>";
+
     if ($photo_path) {
         echo "<p><img src = 'user/user_images/$photo_path' width = '50' height = '50' ></p >";
     }
@@ -47,9 +32,7 @@ while ($row_posts = mysqli_fetch_array($run_posts)) {
         <a href='single.php?post_id=$post_id' style='float:right;'>
             <button>View</button>
         </a>
-        <a href='edit_post.php?post_id=$post_id' style='float:right;'>
-            <button>Edit</button>
-        </a>
+        
         <a href='functions/delete_post.php?post_id=$post_id' style='float:right;'>
             <button>Delete</button>
         </a>

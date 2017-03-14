@@ -22,7 +22,9 @@ else {
         <!-- content timeline starts -->
         <div id="content_timeline">
             <h2>Add Members:</h2>
+
             <?php
+
             global $con;
 
             $get_users = "SELECT * FROM users";

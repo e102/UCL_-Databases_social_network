@@ -21,7 +21,7 @@ else {
     <!-- content timeline starts -->
     <div id="content_timeline">
         <?php
-        getFriends();
+            getFriends();
         ?>
     </div>
     <!-- content timeline ends -->
