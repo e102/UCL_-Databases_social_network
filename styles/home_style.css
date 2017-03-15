@@ -75,7 +75,7 @@ h5 {
   border: solid 2px;
   border-radius: 40px;
   display: inline-block;
-  border-color: white; }
+  border-color: #FF5274; }
 
 .btn-white:hover, .btn-white:focus {
   color: #FF5274;
@@ -197,6 +197,12 @@ h5 {
 #f input {
     padding: 10px;
     border: solid black 2px;    
+    border-radius: 20px;
+}
+
+#f input:button {
+    padding: 10px;
+    border: crimson 2px;    
     border-radius: 20px;
 }
 

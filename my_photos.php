@@ -18,10 +18,10 @@ if(!isset($_SESSION['user_email'])){
         </div>
         <!-- user timeline ends -->
         <!-- content timeline starts -->
-        <div id="content_timeline">
+        <div id="content_timeline" style="padding: 10px;">
 
             <div id="posts">
-                <h3>All posts</h3>
+                <h3 style="margin-top: 15px; margin-left: 10px">All posts</h3>
                 <?php
                     include ("functions/user_photos.php")
                 ?>

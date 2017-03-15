@@ -20,7 +20,7 @@ else {
         </div>
         <!-- user timeline ends -->
         <!-- content timeline starts -->
-        <div id="content_timeline">
+        <div id="content_timeline" style='padding: 20px;'>
             <?php
             include("functions/single_post.php");
             ?>
