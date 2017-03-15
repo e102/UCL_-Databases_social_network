@@ -135,7 +135,9 @@ select {
     height: 60px;
     color: white;
     font-family: sans-serif;
+    text-decoration:none;
 }
+
 
 #ucl_logo {
     float: left;;
@@ -203,6 +205,23 @@ input[type="text"], input[type="password"], {
 #menu {
     font-family: sans-serif;
     color: white;
+    text-decoration: none;
+}
+
+#menu li {
+    display: inline;
+    list-style: none;
+}
+
+#menu a {
+    margin: 5px;
+    padding: 5px;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+#menu a:hover {
+    font-size: 20px;
 }
 
 #menu strong {

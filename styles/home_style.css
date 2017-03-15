@@ -125,7 +125,10 @@ h5 {
     height: 60px;
     color: white;
     font-family: sans-serif;
+    text-decoration:none;
 }
+
+
 
 #menu {
     line-height: 35px;
@@ -143,8 +146,11 @@ h5 {
     margin: 5px;
     padding: 5px;
     text-decoration: none;
-    color: darkred;
     font-size: 15px;
+}
+
+#menu a:hover {
+    font-size: 20px;
 }
 
 #form1 {
