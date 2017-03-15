@@ -1,3 +1,11 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Social Network</title>
+    <link rel="stylesheet" href="styles/home_style.css" media="all"/>
+</head>
+<body>
+
 <?php
 global $con;
 
@@ -36,15 +44,15 @@ while ($row_posts = mysqli_fetch_array($run_posts)) {
     $user_name = $row_user['user_name'];
     $user_image = $row_user['user_image'];
 
-    echo "<div id='posts' >";
+    echo "<div id='posts' style='width: 480px; margin-bottom:10px'>";
     if ($photo_path) {
         echo "<p><img src = 'user/user_images/$photo_path' width = '50' height = '50' ></p >";
     }
-    echo "<h3><a style='padding:20px ' href='user_profile.php?u_id=$user_id'>$user_name</a></h3>
-        <h3 style='padding-left:20px' >$post_title</h3>
-        <p style='padding-left:20px' >$post_date</p>
-        <p style='padding-left:20px' >$content</p>
-        <div style='margin-left:140px'>
+    echo "<h3><a href='user_profile.php?u_id=$user_id'>$user_name</a></h3>
+        <h3  >$post_title</h3>
+        <p>$post_date</p>
+        <p>$content</p>
+        <div>
         <a href='single.php?post_id=$post_id'>
             <button class='btn-white btn-small' >View</button> </a>
         <a href='edit_post.php?post_id=$post_id'>

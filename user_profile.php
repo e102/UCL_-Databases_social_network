@@ -1,3 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Social Network</title>
+    <link rel="stylesheet" href="styles/home_style.css" media="all"/>
+</head>
+<body>
+
+
 <?php
 session_start();
 include("includes/connection.php");
@@ -87,14 +96,14 @@ function userProfile()
         echo "
 <div id='user_profile'>
 
-    <p><img src='user/user_images/$image' width='50' height='50'></p><br/>
+    <p><img style='border-radius: 50px' src='user/user_images/$image' width='100' height='100' </p><br/>
     <p><strong>Name: $name</strong></p><br/>
     <p><strong>Name: $gender</strong></p><br/>
     <p><strong>Country: $country</strong></p><br/>
     <p><strong>Last Login: $last_login</strong></p><br/>
     <p><strong>Member Since: $register_date</strong></p><br/>
-    <a href='messages.php?u_id=$id'><button>$msg</button></a>
-    <a href='add_friend.php?u_id=$id'><button>Send friend request</button></a>
+    <a href='messages.php?u_id=$id'><button class='btn-white btn-small;'>$msg</button></a>
+    <a href='add_friend.php?u_id=$id'><button class='btn-white btn-small;'>Send friend request</button></a>
 </div>
 ";
     }

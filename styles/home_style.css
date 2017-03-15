@@ -188,6 +188,15 @@ h5 {
   border-right: solid black 2px;
 }
 
+#recommend h3 {
+    margin-left: 10px;
+}
+ 
+#recommend img {
+    margin-left: 10px;   
+}
+ 
+
 #content_timeline {
     float: right;
     width: 700px;
@@ -200,11 +209,6 @@ h5 {
     border-radius: 20px;
 }
 
-#f input:button {
-    padding: 10px;
-    border: crimson 2px;    
-    border-radius: 20px;
-}
 
 #f textarea {
     padding: 10px;
@@ -218,6 +222,11 @@ h5 {
     border: solid black 1px;
     border-radius: 20px;
     font-family: sans-serif;
+    padding:10px;
+}
+
+#posts button {
+    
 }
 
 #reply textarea {

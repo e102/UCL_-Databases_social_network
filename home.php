@@ -52,8 +52,8 @@ else {
             <?php
                 include ("functions/insert_post.php")
             ?>
-            <div id="posts" style="padding: 10px;">
-                <h3 style="margin: 10px;" >Most Recent Discussions </h3>
+            <div id="posts">
+                <h3 style="margin: 10px; border: none;">Most Recent Discussions </h3>
                 <?php
                     include("functions/get_all_posts.php");
                 ?>
