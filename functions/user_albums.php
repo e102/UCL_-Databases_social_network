@@ -17,10 +17,18 @@ if (isset($_GET['u_id'])) {
 
         echo "
             <div>
-                <a href='functions/single_album.php?album_id=$album_id'><h3>$album_name</h3></a>
+                <a href='functions/single_album.php?album_id=$album_id'>
+                    <h3>$album_name</h3>
+                </a>
+                <a href='functions/delete_album.php?album_id=$album_id' style='float:right;'>
+                    <button>Delete</button>
+                </a>
+                <br>
             </div>
          ";
     }
 }
+
+include("delete_album.php");
 
 ?>
