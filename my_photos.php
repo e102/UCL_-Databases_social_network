@@ -29,7 +29,9 @@ else {
                 </form>
                 <?php
                 include("functions/insert_album.php");
+                include("functions/user_albums.php");
                 ?>
+                <br>
 
                 <h3>All Photos</h3>
                 <form action="" method="post" id="photo_form" enctype="multipart/form-data">
