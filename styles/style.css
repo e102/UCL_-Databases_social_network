@@ -35,7 +35,6 @@ body {
 .container {
     margin: 0;
     padding: 0;
-    height: 1000px;
     background-color: white;
 }
 
@@ -84,7 +83,7 @@ h5 {
   border: solid 2px;
   border-radius: 40px;
   display: inline-block;
-  border-color: white; }
+  border-color: #FF5274;}
 
 .btn-white:hover, .btn-white:focus {
   color: #FF5274;
@@ -117,6 +116,7 @@ select {
   margin: 0;
   padding: 10px;
   width:250px;
+  color: black;
 }
 
 #head_wrap{
@@ -135,7 +135,9 @@ select {
     height: 60px;
     color: white;
     font-family: sans-serif;
+    text-decoration:none;
 }
+
 
 #ucl_logo {
     float: left;;
@@ -200,8 +202,30 @@ input[type="text"], input[type="password"], {
     font-family: sans-serif;
 }
 
+#menu {
+    font-family: sans-serif;
+    color: white;
+    text-decoration: none;
+}
+
+#menu li {
+    display: inline;
+    list-style: none;
+}
+
+#menu a {
+    margin: 5px;
+    padding: 5px;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+#menu a:hover {
+    font-size: 20px;
+}
 
 #menu strong {
     font-size: 20px;
     text-decoration: underline;
+    
 }

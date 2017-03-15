@@ -18,10 +18,10 @@ else {
         </div>
         <!-- user timeline ends -->
         <!-- content timeline starts -->
-        <div id="content_timeline">
+        <div id="content_timeline" style="padding: 10px;">
 
-            <div id="posts">
-                <h3>All posts</h3>
+            <div id="posts" style="padding: 10px;">
+                <h3 style="margin-top: 15px">All posts</h3>
                 <?php
                 include("functions/get_current_user_posts.php");
                 ?>
