@@ -1,20 +1,21 @@
 <?php
 
 session_start();
-include ("includes/connection.php");
-include ("functions/functions.php");
-include ("template/Main/header.php");
+include("includes/connection.php");
+include("functions/functions.php");
+include("template/Main/header.php");
 
-if(!isset($_SESSION['user_email'])){
+if (!isset($_SESSION['user_email'])) {
     header("location: index.php");
-} else {
+}
+else {
 
     ?>
 
     <div class="content">
         <!-- user timeline starts -->
         <div id="user_timeline">
-            <?php include ("template/Main/user_details.php");?>
+            <?php include("template/Main/user_details.php"); ?>
         </div>
         <!-- user timeline ends -->
         <!-- content timeline starts -->
@@ -22,6 +23,14 @@ if(!isset($_SESSION['user_email'])){
 
             <div id="posts">
                 <h3>All Albums</h3>
+                <form action="" method="post" id="album_form" enctype="multipart/form-data">
+                    <input type="text" name="album_name" required="required">
+                    <input type="submit" name="submit_album" value="Create Album"/>
+                </form>
+                <?php
+                include("functions/insert_album.php");
+                ?>
+
                 <h3>All Photos</h3>
                 <form action="" method="post" id="photo_form" enctype="multipart/form-data">
                     <input type="file" name="photo" required="required"/>
@@ -29,7 +38,7 @@ if(!isset($_SESSION['user_email'])){
                 </form>
                 <?php
                 include("functions/insert_photo.php");
-                include ("functions/user_photos.php");
+                include("functions/user_photos.php");
                 ?>
             </div>
         </div>
