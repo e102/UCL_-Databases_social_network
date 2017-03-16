@@ -11,7 +11,7 @@ while ($row = mysqli_fetch_array($run_com)) {
 
     echo "
     <div id='comments'>
-    <h3>$com_name</h3><span><i>Said</i> on $date</span>
+    <h3>$com_name</h3><span style='color: black'>Posted on $date</span>
     <p>$com</p>
     </div>
     ";
