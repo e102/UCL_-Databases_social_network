@@ -29,29 +29,106 @@ footer, header, hgroup, menu, nav, section {
 
 body {
     line-height: 1;
-    background-color: #E6E6FA;
+    background-color: white;
 }
+
+h1 {
+  font-size: 60px; }
+
+h2 {
+  font-size: 20px;
+  font-weight: 300;
+  color: #3D4351;
+  font-family: sans-serif;
+  padding: 10px;
+  }
+
+h3 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #3D4351; }
+
+h4 {
+  font-size: 18px; }
+
+h5 {
+  font-size: 15px;
+  color: #3D4351;
+  text-transform: uppercase;
+  font-weight: 500; }
+  
+  
+.btn {
+  font-size: 13px;
+  border: solid 2px;
+  border-radius: 40px;
+  display: inline-block;
+  text-transform: uppercase; }
+
+.btn:hover, .btn:focus {
+  color: #fff;
+  border-color: #FF5274;
+  background-color: #FF5274; }
+
+.btn-white {
+  font-size: 13px;
+  border: solid 2px;
+  border-radius: 40px;
+  display: inline-block;
+  border-color: #FF5274; }
+
+.btn-white:hover, .btn-white:focus {
+  color: #FF5274;
+  border-color: #FF5274; }
+
+.btn-fill {
+  color: #fff;
+  border: solid 2px #FF5274;
+  border-radius: 40px;
+  display: inline-block;
+  text-transform: uppercase;
+  background-color: #FF5274; }
+
+.btn-fill:hover, .btn-fill:focus {
+  color: #fff;
+  background-color: #D7405D;
+  border-color: #D7405D; }
+
+.btn-small {
+  padding: 8px 40px; }
+
+.btn-large {
+  padding: 15px 40px; }
+
+.btn-margin-right {
+  margin-right: 20px; }
 
 .container {
     margin: 0;
     padding: 0;
-    background-color: #E6E6FA;
+    background-color: white;
 }
 
-#head_wrap {
+#head_wrap{
     width: 100%;
-    height: 50%;
+    height: 60px;
     margin: 0 auto;
-    border-bottom: 5px solid brown;
+    border-bottom: 2px light-grey;
     padding: 10px;
-    background: #1e90ff;
+    background: #000000;
 }
 
 #header {
     margin: 0 auto;
+    padding: 10px;
     width: 1000px;
-    height: 35px;
+    height: 60px;
+    color: white;
+    font-family: sans-serif;
+    text-decoration:none;
 }
+
+
 
 #menu {
     line-height: 35px;
@@ -69,8 +146,11 @@ body {
     margin: 5px;
     padding: 5px;
     text-decoration: none;
-    color: darkred;
     font-size: 15px;
+}
+
+#menu a:hover {
+    font-size: 20px;
 }
 
 #form1 {
@@ -89,6 +169,7 @@ body {
     float: left;
     height: 600px;
     border-right: solid black 2px;
+    font-family: sans-serif
 }
 
 #user_details {
@@ -97,7 +178,7 @@ body {
 
 #user_details img {
     border: 2px solid black;
-    border-radius: 20px;
+    border-radius: 200px;
 }
 
 #user_details p {
@@ -113,63 +194,57 @@ body {
   border-right: solid black 2px;
 }
 
+#recommend h3 {
+    margin-left: 10px;
+}
+ 
+#recommend img {
+    margin-left: 10px;   
+}
+ 
+
 #content_timeline {
     float: right;
     width: 700px;
-    padding: 10px;
 }
+
 
 #f input {
     padding: 10px;
-    border: solid black 2px;
-    border-radius: 5px;
+    border: solid black 2px;    
+    border-radius: 20px;
 }
+
 
 #f textarea {
     padding: 10px;
     border: solid black 2px;
-    border-radius: 5px;
-}
-
-#footer {
-    width: 100%;
-    height: 40px;
-    padding: 10px;
-    background: #1e90ff;
-    border: 5px solid brown;
-    clear: both;
-}
-
-#footer h2 {
-    text-align: center;
-    padding-top: 3px;
-    color: white;
+    border-radius: 20px;
 }
 
 #posts {
-    width: 600px;
-    padding: 10px;
+    width: 500px;
     line-height: 20px;
     border: solid black 1px;
-    border-radius: 1px;
-    text-align: justify;
+    border-radius: 20px;
+    font-family: sans-serif;
+    padding:10px;
 }
 
 #posts button {
-    padding: 5px;
-
+    
 }
 
 #reply textarea {
     padding: 10px;
     border: solid black 2px;
-    border-radius: 5px;
+    border-radius: 20px;
 }
 
 #reply input {
     padding: 10px;
     border: solid black 2px;
-    border-radius: 5px;
+    border-radius: 20px;
 }
 
 #comments {
