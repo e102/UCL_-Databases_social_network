@@ -1,7 +1,5 @@
 <?php
 
-global $con;
-
 if (isset($_GET['u_id'])) {
 
     $u_id = $_GET['u_id'];
@@ -16,7 +14,10 @@ if (isset($_GET['u_id'])) {
 
         echo "
             <div id='photos'>
-                <p><img src='user/user_images/$photo_path' width='50' height='50'></p>
+                <img src='user/user_images/$photo_path' width='50' height='50'>
+                <a href='functions/delete_photo.php?photo_id=$photo_id' style='float:right;'>
+                    <button>Delete</button>
+                </a>
             </div>
          ";
     }

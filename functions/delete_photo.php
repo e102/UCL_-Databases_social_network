@@ -15,8 +15,7 @@ if (isset($_GET['photo_id'])) {
 
         if ($run_delete) {
             echo "<script>alert('This photo has been deleted!')</script>";
-            $target_url = '../my_photos.php?u_id='.$photo_owner_id;
-            //echo "<script>window.open($target_url,'_self')</script>";
+            echo "<script>window.open('../my_photos.php','_self')</script>";
         }
         else {
             echo "<script>alert('Could not contact server')</script>";
