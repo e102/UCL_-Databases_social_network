@@ -75,6 +75,9 @@
                               </span>
                             </p>
                             </div>
+                            <div>
+                               <button name="sign_up" class="button is-light" style="width:300px;">Sign up</button>
+                            </div>
               </form>
               <?php
               include("functions/user_insert.php");

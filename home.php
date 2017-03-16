@@ -2,7 +2,8 @@
 <html>
 <head>
     <title>My Social Network</title>
-    <link rel="stylesheet" href="styles/home_style.css" media="all"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.0/css/bulma.css">
 </head>
 <body>
 
@@ -35,18 +36,37 @@ else {
         <!-- content timeline starts -->
         <div id="content_timeline">
             <form action="" method="post" id="f" enctype="multipart/form-data">
-                <h2>What's on your mind?</h2>
-                <input type="text" name="title" placeholder="Write a Title" required="required"/><br>
-                <textarea cols="72" rows="4" name="content" required="required" placeholder="Write Description"></textarea><br>
-                <p style="font-family: sans-serif; padding-top: 10px; padding-left: 10px"><h2>Visibility:</h2></p>
-                <select style="padding-left:20px;" name="is_private">
-                    <!--Goes into is_private field in database. 1 = true. 0 = false-->
-                    <option value="1">Private</option>
-                    <option value="0">Public</option>
-                </select><br><br>
-                <h2>Image Upload:</h2>
-                <input type="file"  name="optional_image"/>
-                <input type="submit" class="btn-white btn-small" style="border-color: #FF5274;" value="Post to Timeline"/>
+              <div class="field" style="margin-top:20px;">
+                <label class="label">What's on your mind</label>
+                <article class="media">
+                  <div class="media-content">
+                    <div class="content" style="width: 800px;">
+                      <input class="input" type="text" name="title" placeholder="Write a Title" required="required"/><br>
+                      <textarea class="textarea" cols="72" rows="4" name="content" required="required" placeholder="Write Description"></textarea><br>
+                    </div>
+                  </div>
+                  </div>
+                  <div class="media-bottom">
+                    <label class="label">Visibility</label>
+                  <div class="field" style="width: 800px;">
+                  <span class="select" name="is_private">
+                    <select>
+                      <!--Goes into is_private field in database. 1 = true. 0 = false-->
+                      <option value="1">Private</option>
+                      <option value="0">Public</option>
+                  </select><br><br>
+                </div>
+                  </div>
+
+                  <div class="field">
+                    <label class="label" style="width: 800px;">Image Upload</label>
+                <input class="input" type="file" name="optional_image"/>
+              </div>
+              <div class="field">
+                <input type="submit" class="submit" class="button-is-light" value="Post to Timeline"/>
+              </div>
+              </article>
+
             </form>
             <br></br>
             <?php
@@ -60,10 +80,6 @@ else {
             </div>
         </div>
         <!-- content timeline ends -->
-    </div>
-    <!-- content area ends -->
-    </div>
-    <!-- container ends -->
 
     </body>
     </html>

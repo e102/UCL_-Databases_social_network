@@ -21,16 +21,22 @@
     <div class="nav-right nav-menu">
       <div class="column">
         <form method="post" action="" id="form1">
-            <p class="control has-icon"> <input class="input" type="email" name="u_email" placeholder="Email"
+            <p class="control has-icon"> <input class="input" type="email" name="email" placeholder="Email"
                    required="required"> <span class="icon is-small"> <i class="fa
             fa-envelope"></i> </span> </p>
       </div>
         <div class="column">
           <p class="control has-icon"> <input
-          class="input" name="u_pass" placeholder="Password"
+          class="input" name="pass" placeholder="Password"
           required="required"> <span class="icon is-small"> <i class="fa
           fa-lock"></i> </span> </p>
+        </div>
+          <div class="column">
+             <button name="login" class="button-is-light">Login</button>
+          </div>
+
       </form>
+
     </div>
     </div>
   </div>
