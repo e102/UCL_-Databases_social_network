@@ -1,16 +1,16 @@
 <?php
 
-include "../includes/connection.php";
+include("../includes/connection.php");
 
 if (isset($_GET['album_id'])) {
     global $con;
 
-    $album_id = $_GET['post_id'];
-    $get_album_owner = "select owner_id from posts where post_id = '$album_id'";
+    $album_id = $_GET['album_id'];
+    $get_album_owner = "select owner_id from photo_albums where album_id = '$album_id'";
     $album_owner_id = mysqli_query($con, $get_album_owner);
 
     if (is_owner($album_owner_id)) {
-        $delete_album = "delete from posts where post_id='$album_id'";
+        $delete_album = "delete from photo_albums where album_id='$album_id'";
         $run_delete = mysqli_query($con, $delete_album);
 
         if ($run_delete) {
