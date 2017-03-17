@@ -40,12 +40,7 @@ else {
                        value="<?php echo $post_title; ?>"/><br></br>
                 <textarea cols="72" rows="4" name="content"
                           placeholder="Write Description"><?php echo $content; ?></textarea><br></br>
-                <select name="topic">
-                    <option>Select Topic</option>
-                    <?php
-                    getTopics();
-                    ?>
-                </select>
+
                 <input type="submit" name="update" value="Update post"/>
             </form>
             <?php

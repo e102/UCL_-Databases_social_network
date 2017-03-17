@@ -41,9 +41,6 @@ else {
                     <tr align='center'>
                         <td>
                             <a href='group_messages.php?group_id=$group_id'>$group_name</a>
-                            <a href='delete_group.php?group_id=$$group_id'>
-                                <button class='btn-white btn-small'>Delete</button>
-                            </a>
                             <br>
                         </td>
                     </tr>";

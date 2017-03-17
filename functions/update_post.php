@@ -13,7 +13,7 @@ if (isset($_POST['update'])) {
     if ($run_update) {
 
         echo "<script>alert('This post has been updated!')</script>";
-        echo "<script>window.open('user_posts.php','_self')</script>";
+        echo "<script>window.open('home.php','_self')</script>";
 
     }
 }
