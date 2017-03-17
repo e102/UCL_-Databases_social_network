@@ -3,6 +3,7 @@
 include("../includes/connection.php");
 
 if (isset($_GET['post_id'])) {
+
     global $con;
 
     $post_id = $_GET['post_id'];
@@ -28,6 +29,9 @@ if (isset($_GET['post_id'])) {
 
 function is_owner($post_owner_id)
 {
+    global $con;
+    global $_SESSION;
+
     $user = $_SESSION['user_email'];
     $get_user = "select * from users where user_email = '$user'";
     $run_user = mysqli_query($con, $get_user);

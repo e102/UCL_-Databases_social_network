@@ -8,7 +8,6 @@ if (!isset($_SESSION['user_email'])) {
     header("location: index.php");
 }
 else {
-
     ?>
 
     <div class="content">
@@ -20,9 +19,9 @@ else {
         </div>
         <!-- user timeline ends -->
         <!-- content timeline starts -->
-        <div id="content_timeline" style='padding: 20px;'>
+        <div id="content_timeline">
             <?php
-            include("functions/single_post.php");
+            include("functions/single_album.php");
             ?>
         </div>
         <!-- content timeline ends -->
