@@ -258,14 +258,14 @@ function recommendedFriends()
     $run_set = mysqli_query($con, $get_set);
     while ($row_set = mysqli_fetch_array($run_set)) {
         $row_id = $row_set['requestReceiverID'];
-        $get_random = "select * from friends where requestSenderID='$row_id'";
+        $get_random = "SELECT * FROM friends WHERE requestReceiverID!='$user_id' AND requestSenderID='$row_id'";
         $run_random = mysqli_query($con, $get_random);
 
         while ($row = mysqli_fetch_array($run_random)) {
             $random_id = $row['requestReceiverID'];
-            $get_user = "select * from users where user_id='$random_id' limit 5";
+            $get_user = "SELECT user_name, user_image, user_id FROM users WHERE user_id='$random_id' LIMIT 5";
             $run_user = mysqli_query($con, $get_user);
-            $get_num = "select * from users where user_id='$random_id'";
+            $get_num = "SELECT * FROM users WHERE user_id='$random_id'";
             $run_num = mysqli_query($con, $get_num);
             $num = mysqli_num_rows($run_num);
 
