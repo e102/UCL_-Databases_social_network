@@ -18,12 +18,12 @@ if (isset($_GET['u_id'])) {
                 <a href='functions/single_album.php?album_id=$album_id'>
                     <h3>$album_name</h3>
                 </a>
-                <a href='functions/delete_album.php?album_id=$album_id' style='float:right;'>
-                    <button>Delete</button>
-                </a>
                 <br>
             </div>
          ";
+    //                    <a href='functions/delete_album.php?album_id=$album_id' style='float:right;'>
+    //    <button>Delete</button>
+    //            </a>
     }
 }
 

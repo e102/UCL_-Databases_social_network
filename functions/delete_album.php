@@ -6,7 +6,7 @@ if (isset($_GET['album_id'])) {
     global $con;
 
     $album_id = $_GET['album_id'];
-    $get_album_owner = "select owner_id from photo_albums where album_id = '$album_id'";
+    $get_album_owner = "select album_owner from photo_albums where album_id = '$album_id'";
     $album_owner_id = mysqli_query($con, $get_album_owner);
 
     if (is_owner($album_owner_id)) {
@@ -29,8 +29,9 @@ if (isset($_GET['album_id'])) {
 function is_owner($album_owner_id)
 {
     global $con;
-    $user = $_SESSION['user_email'];
-    $get_user = "select * from users where user_email = '$user'";
+    global $_SESSION;
+    $user_email = $_SESSION['user_email'];
+    $get_user = "select * from users where user_email = '$user_email'";
     $run_user = mysqli_query($con, $get_user);
     $row = mysqli_fetch_array($run_user);
     $user_id = $row['user_id'];

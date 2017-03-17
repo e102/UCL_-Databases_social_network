@@ -1,4 +1,5 @@
 <?php
+
 include("../includes/connection.php");
 
 if (isset($_GET['photo_id'])) {
@@ -14,9 +15,7 @@ if (isset($_GET['photo_id'])) {
 
         if ($run_delete) {
             echo "<script>alert('This photo has been deleted!')</script>";
-            echo "<script>
-                window.open('../my_photos.php?u_id='+'$photo_owner_id','_self');
-                </script>";
+            echo "<script>window.open('../my_photos.php?u_id='+'$photo_owner_id','_self');</script>";
         }
         else {
             echo "<script>alert('Could not contact server')</script>";
