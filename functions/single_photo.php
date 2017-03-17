@@ -30,25 +30,23 @@ if (isset($_GET['photo_id'])) {
 
     echo "
     <form action='' method='post' id='reply'>
-    <textarea cols='60' rows='10' name='comment' placeholder='Write your reply...'></textarea>
+    <textarea cols='60' rows='10' name='comment_photo' required='required' placeholder='Write your reply...'></textarea>
     <input type='submit' name='reply' value='Reply'/>
     </form>
     ";
 
     if(isset($_POST['reply'])){
 
-        $comment = $_POST['comment'];
+
+
+        $comment = $_POST['comment_photo'];
 
         $insert = "insert into photo_comments (photo_id,user_id,comment) VALUES 
                     ('$photo_id','$owner_id','$comment')";
-
-        echo "<script>console.log($insert)";
-
         $run = mysqli_query($con,$insert);
 
         if ($run){
-            $get_id = $_GET['photo_id'];
-            echo "<script>window.open('single_photo.php?photo_id=$get_id','_self')</script>";
+            echo "<script>window.open('single_photo.php?photo_id=$photo_id','_self')</script>";
         }
     }
 

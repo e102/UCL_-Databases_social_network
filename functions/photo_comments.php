@@ -8,12 +8,19 @@ if ($run_com != null) {
 
     while ($row = mysqli_fetch_array($run_com)) {
         $com = $row['comment'];
-        $com_name = $row['comment_author'];
         $date = $row['date'];
+        $owner_id = $row['user_id'];
+
+        $get_user_name = "select * from users where user_id = '$owner_id'";
+        $run_user_name = mysqli_query($con, $get_user_name);
+        $row_user_name = mysqli_fetch_array($run_user_name);
+
+        $author_name = $row_user_name['user_name'];
 
         echo "
     <div id='posts'>
-    <h3>$com_name</h3><span style='color: black'>Posted on $date</span>
+    <p>Author: $author_name</p>
+    <span style='color: black'>Posted on $date</span>
     <p>$com</p>
     </div>
     ";
