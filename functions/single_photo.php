@@ -46,7 +46,7 @@ if (isset($_GET['photo_id'])) {
         $run = mysqli_query($con,$insert);
 
         if ($run){
-            echo "<script>window.open('single_photo.php?photo_id=$photo_id','_self')</script>";
+            echo "<script>window.open('single_photo_wrapper.php?photo_id=$photo_id','_self')</script>";
         }
     }
 
