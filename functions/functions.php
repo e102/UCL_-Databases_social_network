@@ -288,5 +288,49 @@ function recommendedFriends()
     }
 }
 
+function getBlogs() {
+
+  if (isset($_GET['search_blog'])) {
+
+      global $con;
+
+      $blog_query = $_GET['user_query'];
+
+      $get_blog = "SELECT * FROM posts WHERE post_title LIKE '%$blog_query'";
+      $run_blog = mysqli_query($con, $get_blog);
+
+      while ($row_blog = mysqli_fetch_array($run_blog)) {
+
+        $post_id = $row_blog['post_id'];
+        $user_id = $row_blog['user_id'];
+        $post_title = $row_blog['post_title'];
+        $content = $row_blog['post_content'];
+        $post_date = $row_blog['post_date'];
+        $photo_path = $row_blog['post_photo_path'];
+
+        $user = "select * from users where user_id='$user_id' and posts='yes'";
+        $run_user = mysqli_query($con, $user);
+        $row_user = mysqli_fetch_array($run_user);
+        $user_name = $row_user['user_name'];
+        $user_image = $row_user['user_image'];
+
+        echo "<div id='posts' style='width: 480px; margin-bottom:10px'>";
+        if ($photo_path) {
+            echo "<p><img src = 'user/user_images/$photo_path' width = '50' height = '50' ></p >";
+        }
+        echo "<h3><a href='user_profile.php?u_id=$user_id'>$user_name</a></h3>
+            <h3>$post_title</h3>
+            <p>$post_date</p>
+            <p>$content</p>
+            <div>
+            <a href='single.php?post_id=$post_id'>
+                <button class='btn-white btn-small' >View</button> </a>
+            <a href='edit_post.php?post_id=$post_id'>
+                <button class ='btn-white btn-small'>Edit</button> </a>
+            </div>
+            </div>";
+      }
+  }
+}
 
 ?>

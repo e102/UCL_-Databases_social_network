@@ -30,6 +30,10 @@
                 <input type="text" name="user_query" placeholder="Search for friends"/>
                 <input type="submit" name="search" class="btn-white btn-small" value="Search"/>
             </form>
+            <form method="get" action="blog_results.php" id="form1">
+                <input type="text" name="user_query" placeholder="Search your friends blogs"/>
+                <input type="submit" name="search_blog" class="btn-white btn-small" value="Search"/>
+            </form>
         </div>
         <!-- header ends -->
     </div>
