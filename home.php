@@ -46,9 +46,9 @@ else {
                 </select><br><br>
                 <h2>Image Upload:</h2>
                 <input type="file"  name="optional_image"/>
-                <input type="submit" class="btn-white btn-small" style="border-color: #FF5274;" value="Post to Timeline"/>
+                <input type="submit" name="sub" class="btn-white btn-small" style="border-color: #FF5274;" value="Post to Timeline"/>
             </form>
-            <br></br>
+            <br>
             <?php
                 include ("functions/insert_post.php")
             ?>
