@@ -27,7 +27,8 @@ else {
 
             global $con;
 
-            $get_users = "SELECT * FROM users ";
+            $get_users = "SELECT * FROM users join friends on users.user_id = friends.requestReceiverID and verified='yes'";
+            $members = array();
 
             $run_user = mysqli_query($con, $get_users);
             if (isset($_GET['group_id'])) {
@@ -38,8 +39,11 @@ else {
                 $user_id = $row['user_id'];
                 $user_name = $row['user_name'];
                 $user_image = $row['user_image'];
+                $email = $row['user_email'];
 
-                echo "
+                if (!in_array($user_name, $members) && $_SESSION['user_email'] != $email) {
+                    array_push($members, $user_name);
+                    echo "
                   <div id='members'>
                         <p><a href='user_profile.php?u_id=$user_id'><img src='user/user_images/$user_image' width='50' height='50'></a></p>
                         <h3><a href='user_profile.php?u_id=$user_id'>$user_name</a></h3>
@@ -48,6 +52,7 @@ else {
                         </a>
                   </div></br>
                   ";
+                }
             }
 
             ?>
