@@ -15,7 +15,8 @@ if (isset($_GET['u_id'])) {
 
         echo "
             <div>
-                <a href='../single_album_wrapper.php?album_id=$album_id'>
+                
+                <a href='single_album_wrapper.php?album_id=$album_id'>
                     <h3>$album_name</h3>
                 </a>
                 <br>

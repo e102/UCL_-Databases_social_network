@@ -1,5 +1,5 @@
 <?php
-include("../includes/connection.php");
+include("includes/connection.php");
 if (isset($_GET['album_id'])) {
     global $con;
     $album_id = $_GET['album_id'];
