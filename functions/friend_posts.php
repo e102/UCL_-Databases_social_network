@@ -19,8 +19,7 @@ while ($row_posts = mysqli_fetch_array($run_posts)) {
     $user_image = $row_user['user_image'];
 
     echo "<div id='posts'>
-            <a href='messages.php?u_id=$user_id'><button>Message $user_name</button></a>
-            <a href='friends_of_friends.php?u_id=$user_id'><button>Friends of $user_name</button></a>";
+            ";
 
     if ($photo_path) {
         echo "<p><img src = 'user/user_images/$photo_path' width = '50' height = '50' ></p >";
