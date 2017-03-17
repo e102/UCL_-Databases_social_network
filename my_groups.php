@@ -50,28 +50,6 @@ else {
                 }
             }
             ?>
-            
-            <?php
-            if (isset($_GET['msg_id'])) {
-                $get_id = $_GET['msg_id'];
-
-                $sel_message = "select * from messages where msg_id='$msg_id'";
-                $run_message = mysqli_query($con, $sel_message);
-
-                $row = mysqli_fetch_array($run_message);
-
-                $msg_subject = $row['msg_sub'];
-                $msg_topic = $row['msg_topic'];
-
-                echo "
-                    <br/><hr>
-                    <h2>$msg_subject:</h2>
-                    <h3>$sender_name:</h3>
-                    <p></p>
-                    ";
-            }
-            ?>
-
         </div>
         <!-- content area ends -->
     </div>
