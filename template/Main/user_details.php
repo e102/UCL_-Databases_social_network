@@ -27,7 +27,7 @@
         $numberRequests = mysqli_num_rows($run_requests);
     }
 
-    $groups = "select * from groups where owner_id='$user_id'";
+    $groups = "select * from group_members where user_id='$user_id'";
     $run_groups = mysqli_query($con, $groups);
     if ($run_groups == null) {
         $numberGroups = 0;
