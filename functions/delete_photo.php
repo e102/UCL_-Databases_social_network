@@ -6,11 +6,11 @@ if (isset($_GET['photo_id'])) {
     global $con;
 
     $photo_id = $_GET['photo_id'];
-    $get_photo_owner = "select owner_id from photo_albums where album_id = '$photo_id'";
+    $get_photo_owner = "select owner_id from photos where photo_id = '$photo_id'";
     $photo_owner_id = mysqli_query($con, $get_photo_owner);
 
     if (is_owner($photo_owner_id)) {
-        $delete_photo = "delete from photo_albums where album_id='$photo_id'";
+        $delete_photo = "delete from photos where photo_id='$photo_id'";
         $run_delete = mysqli_query($con, $delete_photo);
 
         if ($run_delete) {
@@ -28,8 +28,9 @@ if (isset($_GET['photo_id'])) {
 
 function is_owner($photo_owner_id)
 {
-    $user = $_SESSION['user_email'];
-    $get_user = "select * from users where user_email = '$user'";
+    global $con;
+    $user_email = $_SESSION['user_email'];
+    $get_user = "select * from users where user_email = '$user_email'";
     $run_user = mysqli_query($con, $get_user);
     $row = mysqli_fetch_array($run_user);
     $user_id = $row['user_id'];
