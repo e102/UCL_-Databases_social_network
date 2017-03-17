@@ -22,9 +22,6 @@ if (isset($_GET['u_id'])) {
                 <br>
             </div>
          ";
-    //                    <a href='functions/delete_album.php?album_id=$album_id' style='float:right;'>
-    //    <button>Delete</button>
-    //            </a>
     }
 }
 
