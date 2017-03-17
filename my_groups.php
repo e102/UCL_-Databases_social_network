@@ -27,7 +27,7 @@ else {
             }
             else {
                 $count_msg = mysqli_num_rows($run);
-
+                echo "<h1>Groups</h1><br>";
                 while ($row = mysqli_fetch_array($run)) {
 
                     $group_id = $row['group_id'];
@@ -40,7 +40,7 @@ else {
                     echo "                    
                     <tr align='center'>
                         <td>
-                            <a href='group_messages.php?group_id=$group_id'>$group_name</a>
+                            <a href='group_messages.php?group_id=$group_id'><h3>$group_name</h3></a>
                             <br>
                         </td>
                     </tr>";
