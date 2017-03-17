@@ -20,7 +20,7 @@
                   class="control"> <input class="input" type="text" name="u_name" placeholder="Enter your name" required="required"> </p> </div>
 
                   <div class="field"> <label class="label">Password</label><p class="control has-icon"> <input
-                  class="input" name="u_pass" placeholder="Enter your password"
+                  class="input" name="u_pass" placeholder="Enter your password" type="password"
                   required="required"> <span class="icon is-small"> <i class="fa
                   fa-lock"></i> </span> </p> </div>
 
@@ -70,6 +70,16 @@
                         </span>
                       </p>
                       </div>
+
+            <div class="field">
+                <label class="label">Date of birth</label>
+                <p class="control">
+                        <span>
+                          <button name="sign_up" class="btn-white btn-small">Sign up</button>
+                        </span>
+                </p>
+            </div>
+
         </form>
         <?php
         include("functions/user_insert.php");
