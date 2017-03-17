@@ -15,7 +15,12 @@ if (isset($_POST['update'])) {
 
     move_uploaded_file($image_tmp, "user/user_images/$image");
 
-    $update = "update users set user_name='$name',user_pass='$pass',user_email='$email',user_country = '$country',user_gender='$user_gender',user_image='$image', profile_is_private = '$profile_is_private' where user_id='$user_id'";
+    if ($image != null) {
+        $update = "update users set user_name='$name',user_pass='$pass',user_email='$email',user_country = '$country',user_gender='$user_gender',user_image='$image', profile_is_private = '$profile_is_private' where user_id='$user_id'";
+    }
+    else{
+        $update = "update users set user_name='$name',user_pass='$pass',user_email='$email',user_country = '$country',user_gender='$user_gender', profile_is_private = '$profile_is_private' where user_id='$user_id'";
+    }
     $run_update = mysqli_query($con, $update);
 
     if ($run_update) {
