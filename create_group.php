@@ -50,10 +50,10 @@ else {
 
                     echo "
                   <div id='members'>
-                    
+
                     <p><a href='user_profile.php?u_id=$user_id'><img src='user/user_images/$user_image' width='50' height='50'></a></p>
                     <input type='checkbox' name='group_members[]' value='$user_name' /><label for=$user_name>$user_name</label><br />
-                  
+
                   </div></br>
                   ";
                 }
@@ -83,7 +83,6 @@ else {
                     $run = mysqli_query($con, $insert);
 
                     foreach ($_POST['group_members'] as $member) {
-                        echo "<h2>FOREACH LOOP RUNNING!</h2>";
                         $get_com = "select * from users where user_name = '$member'";
                         $run_com = mysqli_query($con, $get_com);
                         $row_com = mysqli_fetch_array($run_com);
