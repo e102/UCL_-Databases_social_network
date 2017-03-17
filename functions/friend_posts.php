@@ -29,7 +29,7 @@ while ($row_posts = mysqli_fetch_array($run_posts)) {
         <h3>$post_title</h3>
         <p>$post_date</p>
         <p>$content</p>
-        <a href='single.php?post_id=$post_id' style='float:right;'>
+        <a href='single_post.php?post_id=$post_id' style='float:right;'>
             <button>View</button>
         </a>
         

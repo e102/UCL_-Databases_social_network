@@ -56,7 +56,7 @@ if(isset($_GET['post_id'])) {
 
         if ($run){
             $get_id = $_GET['post_id'];
-            echo "<script>window.open('single.php?post_id=$get_id','_self')</script>";
+            echo "<script>window.open('single_post.php?post_id=$get_id','_self')</script>";
         }
     }
 
