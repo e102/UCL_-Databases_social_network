@@ -80,14 +80,9 @@ else {
                         <td>
                             <select name="u_gender"/>
                             <?php
-                            if ($user_gender == 'Male') {
-                                echo "<option value='Male' selected='selected'>Male</option>";
-                                echo "<option value='Female'>Female</option>";
-                            }
-                            if ($user_gender == 'Female') {
-                                echo "<option value='Male'>Male</option>";
-                                echo "<option value='Female' selected='selected'>Female</option>";
-                            }
+                            echo "<option value='Male' selected='selected'>Male</option>";
+                            echo "<option value='Female'>Female</option>";
+                            echo "<option value='Other'>Other</option>";
                             ?>
                             </select>
                         </td>
