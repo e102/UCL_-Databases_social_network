@@ -16,6 +16,8 @@ if (isset($_GET['album_id'])) {
     $user_name = $row_user['user_name'];
     $user_image = $row_user['user_image'];
 
+    echo"<br>";
+
     echo "
     <div id='posts'>
     <p><img src='user/user_images/$user_image' width='50' height='50'></p>
@@ -34,11 +36,19 @@ if (isset($_GET['album_id'])) {
         $single_photo_path = $single_photo_row['photo_path'];
 
         echo "<p><img src='user/user_images/$single_photo_path' width='50' height='50'></p>";
+        echo"</br>";
     }
-
-    echo"
-    </div></br>
-    ";
 }
 
+function add_photo($photo_id, $album_id){
+    global $con;
+    $insert_photo = "insert into photo_album_contents (photo_id,album_id) VALUES ($photo_id,$album_id)";
+    $run_insert = sqlite_query($con, $insert_photo);
+    if ($run_insert) {
+        echo "<script>alert('Photo added to album')</script>";
+    }
+    else {
+        echo "<script>alert('Could not establish connection to server')</script>";
+    }
+}
 ?>
