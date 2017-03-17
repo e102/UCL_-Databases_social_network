@@ -28,5 +28,4 @@ if (isset($_POST['update'])) {
         echo "<script>window.open('home.php','_self')</script>";
     }
 }
-
 ?>
