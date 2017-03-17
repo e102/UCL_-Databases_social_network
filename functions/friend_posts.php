@@ -32,7 +32,6 @@ while ($row_posts = mysqli_fetch_array($run_posts)) {
         <a href='single.php?post_id=$post_id' style='float:right;'>
             <button>View</button>
         </a>
-        
         </div>
     ";
 }
