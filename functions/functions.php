@@ -209,7 +209,7 @@ function getFriends()
 
         if ($_SESSION['friend_user_id'] != '') {
             $user_id = $_SESSION['friend_user_id'];
-            $get_users = "SELECT * FROM users join friends on users.user_id = friends.requestReceiverID and verified='yes' 
+            $get_users = "SELECT * FROM users join friends on users.user_id = friends.requestReceiverID and verified='yes'
                 where friends.requestSenderID = '$user_id' and user_name like '%$friend_name%' AND profile_is_private = 0";
             $run_user = mysqli_query($con, $get_users);
 
@@ -279,7 +279,7 @@ function recommendedFriends()
                     echo "
           <div id='recommended'>
           <p><img src='user/user_images/$user_image' width='50' height='50'></p>
-          <h3><a href='user_profile.php?u_id=$user_id'>$user_name</a></h3>
+          <h3><a href='user_profile.php?u_id=$u_id'>$user_name</a></h3>
           </div></br>
           ";
                 }
