@@ -1,6 +1,6 @@
 <?php
 
-include("../includes/connection.php");
+include("includes/connection.php");
 
 if (isset($_GET['album_id'])) {
     global $con;
@@ -28,6 +28,7 @@ if (isset($_GET['album_id'])) {
 
 function is_owner($album_owner_id)
 {
+    global $con;
     $user = $_SESSION['user_email'];
     $get_user = "select * from users where user_email = '$user'";
     $run_user = mysqli_query($con, $get_user);
