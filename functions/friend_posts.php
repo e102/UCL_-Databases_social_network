@@ -1,6 +1,6 @@
 <?php
 
-$get_posts = "select * from posts where user_id = '$u_id'";
+$get_posts = "select * from posts where user_id = '$u_id' AND is_private = 0";
 $run_posts = mysqli_query($con, $get_posts);
 
 while ($row_posts = mysqli_fetch_array($run_posts)) {
