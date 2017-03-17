@@ -21,7 +21,7 @@ if(!isset($_SESSION['user_email'])){
         <div id="content_timeline" style="padding: 10px;">
 
             <div id="posts">
-                <h3 style="margin-top: 15px; margin-left: 10px">All posts</h3>
+                <h3 style="margin-top: 15px; margin-left: 10px">My photos</h3>
                 <?php
                     include ("functions/user_photos.php")
                 ?>

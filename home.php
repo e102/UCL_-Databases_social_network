@@ -25,11 +25,7 @@ else {
         <div id="user_timeline">
             <?php include("template/Main/user_details.php"); ?>
           </br>
-            <div id="recommend">
-              <h3>People you may know:</h3>
-            </br>
-              <?php recommendedFriends(); ?>
-            </div>
+            
         </div>
         <!-- user timeline ends -->
         <!-- content timeline starts -->
@@ -46,9 +42,9 @@ else {
                 </select><br><br>
                 <h2>Image Upload:</h2>
                 <input type="file"  name="optional_image"/>
-                <input type="submit" class="btn-white btn-small" style="border-color: #FF5274;" value="Post to Timeline"/>
+                <input type="submit" name="sub" class="btn-white btn-small" style="border-color: #FF5274;" value="Post to Timeline"/>
             </form>
-            <br></br>
+            <br>
             <?php
                 include ("functions/insert_post.php")
             ?>

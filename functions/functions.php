@@ -255,17 +255,20 @@ function recommendedFriends()
     global $con;
     global $user_id;
 
-    $get_set = "select * from friends where requestSenderID='$user_id' order by rand() limit 5";
+    $get_set = "select * from friends where requestSenderID='$user_id' order by rand()";
     $run_set = mysqli_query($con, $get_set);
     while ($row_set = mysqli_fetch_array($run_set)) {
         $row_id = $row_set['requestReceiverID'];
-        $get_random = "select * from friends where requestSenderID='$row_id'";
+        $get_random = "SELECT * FROM friends WHERE requestReceiverID!='$user_id' AND requestSenderID='$row_id'";
         $run_random = mysqli_query($con, $get_random);
 
         while ($row = mysqli_fetch_array($run_random)) {
             $random_id = $row['requestReceiverID'];
-            $get_user = "select * from users where user_id='$random_id'";
+            $get_user = "SELECT user_name, user_image, user_id FROM users WHERE user_id='$random_id' LIMIT 5";
             $run_user = mysqli_query($con, $get_user);
+            $get_num = "SELECT * FROM users WHERE user_id='$random_id'";
+            $run_num = mysqli_query($con, $get_num);
+            $num = mysqli_num_rows($run_num);
 
             while ($row_user = mysqli_fetch_array($run_user)) {
                 $user_name = $row_user['user_name'];
@@ -280,7 +283,7 @@ function recommendedFriends()
                     echo "
           <div id='recommended'>
           <p><img src='user/user_images/$user_image' width='50' height='50'></p>
-          <h3><a href='user_profile.php?u_id=$user_id'>$user_name</a></h3>
+          <h3><a href='user_profile.php?u_id=$u_id'>$user_name ($num)</a></h3>
           </div></br>
           ";
                 }
@@ -289,5 +292,50 @@ function recommendedFriends()
     }
 }
 
+function getBlogs() {
+
+  if (isset($_GET['search_blog'])) {
+
+      global $con;
+
+      $blog_query = $_GET['user_query'];
+
+      $get_blog = "SELECT * FROM posts WHERE post_title LIKE '%$blog_query' AND (SELECT * FROM users join friends on users.user_id = friends.requestReceiverID and verified='yes'
+          where friends.requestSenderID = '$user_id')";
+      $run_blog = mysqli_query($con, $get_blog);
+
+      while ($row_blog = mysqli_fetch_array($run_blog)) {
+
+        $post_id = $row_blog['post_id'];
+        $user_id = $row_blog['user_id'];
+        $post_title = $row_blog['post_title'];
+        $content = $row_blog['post_content'];
+        $post_date = $row_blog['post_date'];
+        $photo_path = $row_blog['post_photo_path'];
+
+        $user = "select * from users where user_id='$user_id' and posts='yes'";
+        $run_user = mysqli_query($con, $user);
+        $row_user = mysqli_fetch_array($run_user);
+        $user_name = $row_user['user_name'];
+        $user_image = $row_user['user_image'];
+
+        echo "<div id='posts' style='width: 480px; margin-bottom:10px'>";
+        if ($photo_path) {
+            echo "<p><img src = 'user/user_images/$photo_path' width = '50' height = '50' ></p >";
+        }
+        echo "<h3><a href='user_profile.php?u_id=$user_id'>$user_name</a></h3>
+            <h3>$post_title</h3>
+            <p>$post_date</p>
+            <p>$content</p>
+            <div>
+            <a href='single.php?post_id=$post_id'>
+                <button class='btn-white btn-small' >View</button> </a>
+            <a href='edit_post.php?post_id=$post_id'>
+                <button class ='btn-white btn-small'>Edit</button> </a>
+            </div>
+            </div>";
+      }
+  }
+}
 
 ?>
