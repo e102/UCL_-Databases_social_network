@@ -1,11 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>My Social Network</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.0/css/bulma.css">
-</head>
-
 <?php
 session_start();
 include ("includes/connection.php");
@@ -20,7 +12,6 @@ if(!isset($_SESSION['user_email'])){
     <!-- Content area starts -->
         <div class="content">
             <!-- user timeline starts -->
-
             <div id="user_timeline">
                 <div id="user_timeline">
                     <?php include ("template/Main/user_details.php");?>
@@ -28,17 +19,12 @@ if(!isset($_SESSION['user_email'])){
             </div>
             <!-- user timeline ends -->
             <!-- content timeline starts -->
-            <section>
             <div id="content_timeline">
-
-              <div class="field"  style="margin-top:40px">
-                <center><h1>FRIENDS</h1></center>
-              </div>
+                <h2>All Friends:</h2>
                 <?php
                     include ("functions/get_friends.php")
                 ?>
             </div>
-          </section>
             <!-- content timeline ends -->
         </div>
         <!-- content area ends -->

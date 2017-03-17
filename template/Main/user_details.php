@@ -1,11 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>My Social Network</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.0/css/bulma.css">
-</head>
-
 <div id="user_details">
     <?php
     $user = $_SESSION['user_email'];
@@ -53,31 +45,20 @@
         $numberMessages = mysqli_num_rows($run_messages);
     }
 
-
-
     echo "
-                      <section>
-                      <div class='columns'>
-                      <div class='column' style='margin-top:40px;'>
-                      <p><a href='my_messages.php?u_id=$user_id'>My Messages ($numberMessages)</a></p>
-                      <p><a href='user_posts.php?u_id=$user_id'>My Posts ($numberPosts)</a></p>
-                      <p><a href='my_photos.php?u_id=$user_id'>My Photos </a></p>
-                      <p><a href='my_groups.php?u_id=$user_id'>My Groups ($numberGroups)</a></p>
-                      <p><a href='friend_requests.php?u_id=$user_id'>Friend requests ($numberRequests)</a></p>
-                      <p><a href='edit_account.php?u_id=$user_id'>Edit My Account</a></p>
-                      <p><a href='logout.php'>Logout</a></p>
-                      </div>
-
-                      <div class='column' style='margin-top:40px;'>
-                      <img src='user/user_images/$user_image' width='200px' height='200px' style='border-radius: 200px'/>
+                      <center><img src='user/user_images/$user_image' width='200px' height='200px'/></center>
                       <p><strong>Name: $user_name</strong></p>
                       <p><strong>Country: $user_country</strong></p>
                       <p><strong>Last Login: $last_login</strong></p>
                       <p><strong>Member Since: $register_date</strong></p>
-
-                      </div>
-                      </div>
-                      </section>
+                      
+                      <p><a href='my_messages.php?u_id=$user_id'>My Messages ($numberMessages)</a></p>
+                      <p><a href='user_posts.php?u_id=$user_id'>My Posts ($numberPosts)</a></p>
+                      <p><a href='my_photos.php?u_id=$user_id'>My Photos </a></p>                      
+                      <p><a href='my_groups.php?u_id=$user_id'>My Groups ($numberGroups)</a></p>                   
+                      <p><a href='friend_requests.php?u_id=$user_id'>Friend requests ($numberRequests)</a></p>
+                      <p><a href='edit_account.php?u_id=$user_id'>Edit My Account</a></p>
+                      <p><a href='logout.php'>Logout</a></p>
                       ";
     ?>
 </div>
