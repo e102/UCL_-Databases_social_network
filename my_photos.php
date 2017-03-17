@@ -29,6 +29,7 @@ else {
                 </form>
                 <?php
                 include("functions/insert_album.php");
+                echo "<br>";
                 include("functions/user_albums.php");
                 ?>
                 <br>
