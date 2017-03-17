@@ -20,9 +20,14 @@ if (isset($_POST['submit_group_message'])) {
     $run_insert = mysqli_query($con, $insert);
 
     if ($run_insert) {
-        echo "<script>location.reload()</script>";
+        echo "
+        <div id='posts'>
+            <h3><a href='user_profile.php?u_id=$user_id'>$user_name</a></h3>
+            <p>$message</p>
+        </div>
+        ";
     } else {
-        //echo "<script>alert('Message not sent!') </script>";
+        echo "<script>alert('Message not sent!') </script>";
     }
 
 

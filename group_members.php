@@ -28,6 +28,8 @@ else {
             <?php
 
             if (isset($_GET['group_id'])) {
+
+
                 $group_id = $_GET['group_id'];
 
                 $select_members = "select * from group_members where group_id = '$group_id'";

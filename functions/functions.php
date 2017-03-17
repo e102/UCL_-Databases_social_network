@@ -258,6 +258,8 @@ function recommendedFriends()
     $members = array();
     $get_set = "select * from friends where requestSenderID='$user_id' order by rand()";
     $run_set = mysqli_query($con, $get_set);
+    $count = 0;
+
     while ($row_set = mysqli_fetch_array($run_set)) {
         $row_id = $row_set['requestReceiverID'];
         $get_random = "SELECT * FROM friends WHERE requestReceiverID!='$user_id' AND requestSenderID='$row_id'";
@@ -275,8 +277,9 @@ function recommendedFriends()
 
                 $user_name = $row_user['user_name'];
 
-                if (!in_array($user_name, $members)) {
+                if (!in_array($user_name, $members) && $count < 5) {
 
+                    $count++;
                     array_push($members, $user_name);
                     $user_image = $row_user['user_image'];
                     $u_id = $row_user['user_id'];
@@ -288,7 +291,8 @@ function recommendedFriends()
                       <div id='recommended'>
                       <p><img src='user/user_images/$user_image' width='50' height='50'></p>
                       <h3><a href='user_profile.php?u_id=$u_id'>$user_name ($num)</a></h3>
-                      </div></br>
+                      </div>
+                      </br>
                       ";
                     }
 

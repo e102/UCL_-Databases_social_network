@@ -39,7 +39,7 @@ if (isset($_POST['sign_up'])) {
             echo "<script>window.open('home.php','_self')</script>";
         }
         else {
-            echo "<script>alert('Registration unsuccessful!') </script>";
+            echo "<script>alert('Registration unsuccessful!')</script>";
         }
     }
 

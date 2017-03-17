@@ -26,7 +26,7 @@ $run_user = mysqli_query($con, $get_user);
 $row = mysqli_fetch_array($run_user);
 $user_id = $row['user_id'];
 
-$get_posts = "SELECT * FROM posts WHERE is_private = 0 LIMIT 20";
+$get_posts = "select * from posts where user_id = '$user_id'";
 $run_posts = mysqli_query($con, $get_posts);
 
 while ($row_posts = mysqli_fetch_array($run_posts)) {
@@ -44,21 +44,25 @@ while ($row_posts = mysqli_fetch_array($run_posts)) {
     $user_name = $row_user['user_name'];
     $user_image = $row_user['user_image'];
 
-    echo "<div id='posts' style='width: 480px; margin-bottom:10px'>";
+    echo "<div id='posts'>";
     if ($photo_path) {
         echo "<p><img src = 'user/user_images/$photo_path' width = '50' height = '50' ></p >";
     }
     echo "<h3><a href='user_profile.php?u_id=$user_id'>$user_name</a></h3>
-        <h3  >$post_title</h3>
+        <h3>$post_title</h3>
         <p>$post_date</p>
         <p>$content</p>
-        <div>
-        <a href='single.php?post_id=$post_id'>
-            <button class='btn-white btn-small' >View</button> </a>
-        <a href='edit_post.php?post_id=$post_id'>
-            <button class ='btn-white btn-small'>Edit</button> </a>
+        <a href='single_post.php?post_id=$post_id' style='float:right;'>
+            <button>View</button>
+        </a>
+        <a href='edit_post.php?post_id=$post_id' style='float:right;'>
+            <button>Edit</button>
+        </a>
+        <a href='functions/delete_post.php?post_id=$post_id' style='float:right;'>
+            <button>Delete</button>
+        </a>
         </div>
-        </div>";
+    ";
 }
 
 ?>

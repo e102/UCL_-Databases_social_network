@@ -27,7 +27,7 @@ else {
 
             global $con;
 
-            $get_users = "SELECT * FROM users";
+            $get_users = "SELECT * FROM users ";
 
             $run_user = mysqli_query($con, $get_users);
             if (isset($_GET['group_id'])) {

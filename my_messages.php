@@ -79,8 +79,8 @@ else {
 
                 echo "
                     <br/><hr>
-                    <h2>$msg_subject:</h2>
-                    <h3>$sender_name:</h3>
+                    <h3>Subject: $msg_subject</h3>
+                    <h2>Message: $msg_topic</h2>
                     <p></p>
                     ";
             }
