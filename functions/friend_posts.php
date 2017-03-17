@@ -1,6 +1,6 @@
 <?php
 
-$get_posts = "select * from posts where user_id = '$user_id'";
+$get_posts = "select * from posts where user_id = '$u_id'";
 $run_posts = mysqli_query($con, $get_posts);
 
 while ($row_posts = mysqli_fetch_array($run_posts)) {
@@ -12,7 +12,7 @@ while ($row_posts = mysqli_fetch_array($run_posts)) {
     $post_date = $row_posts['post_date'];
     $photo_path = $row_posts['post_photo_path'];
 
-    $user = "select * from users where user_id='$current_user_id' and posts='yes'";
+    $user = "select * from users where user_id='$u_id' and posts='yes'";
     $run_user = mysqli_query($con, $user);
     $row_user = mysqli_fetch_array($run_user);
     $user_name = $row_user['user_name'];
@@ -38,7 +38,7 @@ while ($row_posts = mysqli_fetch_array($run_posts)) {
 
 echo "<br><h2>Images</h2>";
 
-$get_images = "select * from photos where photo_owner = '$user_id'";
+$get_images = "select * from photos where photo_owner = '$u_id'";
 $run_images = mysqli_query($con, $get_images);
 while ($row_posts = mysqli_fetch_array($run_images)) {
     $image_id = $row_posts['photo_id'];

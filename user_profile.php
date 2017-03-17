@@ -33,11 +33,11 @@ else {
 
             <?php
 
-                $u_id = $_GET['u_id'];
-                $get_user = "select * from users where user_id = '$u_id'";
-                $run_user = mysqli_query($con,$get_user);
-                $row = mysqli_fetch_array($run_user);
-                $user_name = $row['user_name'];
+            $u_id = $_GET['u_id'];
+            $get_user = "select * from users where user_id = '$u_id'";
+            $run_user = mysqli_query($con,$get_user);
+            $row = mysqli_fetch_array($run_user);
+            $user_name = $row['user_name'];
 
             $user = $_SESSION['user_email'];
             $get_user = "select * from users where user_email = '$user'";
@@ -45,7 +45,7 @@ else {
             $row = mysqli_fetch_array($run_user);
             $current_user_id = $row['user_id'];
 
-            $select = "select * from friends where verified='yes' and requestSenderID='$current_user_id' and requestReceiverID='$user_id'";
+            $select = "select * from friends where verified='yes' and requestSenderID='$current_user_id' and requestReceiverID='$u_id'";
             $run = mysqli_query($con, $select);
 
             $row_user = mysqli_fetch_array($run);
