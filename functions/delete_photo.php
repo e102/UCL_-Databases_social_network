@@ -1,5 +1,4 @@
 <?php
-
 include("../includes/connection.php");
 
 if (isset($_GET['photo_id'])) {
@@ -15,7 +14,9 @@ if (isset($_GET['photo_id'])) {
 
         if ($run_delete) {
             echo "<script>alert('This photo has been deleted!')</script>";
-            echo "<script>window.open('../my_photos.php','_self')</script>";
+            echo "<script>
+                window.open('../my_photos.php?u_id='+'$photo_owner_id','_self');
+                </script>";
         }
         else {
             echo "<script>alert('Could not contact server')</script>";
@@ -29,6 +30,7 @@ if (isset($_GET['photo_id'])) {
 function is_owner($photo_owner_id)
 {
     global $con;
+    global $_SESSION;
     $user_email = $_SESSION['user_email'];
     $get_user = "select * from users where user_email = '$user_email'";
     $run_user = mysqli_query($con, $get_user);
