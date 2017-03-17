@@ -14,7 +14,7 @@ if (isset($_GET['u_id'])) {
 
         echo "
             <div id='photos'>
-                <a href='../single_photo_wrapper.php?photo_id=$photo_id'><img src='user/user_images/$photo_path' width='50' height='50'></a>
+                <a href='single_photo_wrapper.php?photo_id=$photo_id'><img src='user/user_images/$photo_path' width='50' height='50'></a>
                 <a href='functions/delete_photo.php?photo_id=$photo_id' style='float:right;'>
                     <button>Delete</button>
                 </a>
