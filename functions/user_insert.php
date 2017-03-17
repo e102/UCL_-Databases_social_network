@@ -34,7 +34,7 @@ if (isset($_POST['sign_up'])) {
         $run_insert = mysqli_query($con, $insert);
         if ($run_insert) {
             $_SESSION['user_email'] = $email;
-
+            $_SESSION['friend_user_id'] = '';
             echo "<script>alert('Registration successful!') </script>";
             echo "<script>window.open('home.php','_self')</script>";
         }

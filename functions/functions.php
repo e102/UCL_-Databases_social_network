@@ -206,17 +206,18 @@ function getFriends()
         global $con;
 
         $friend_name = $_GET['user_query'];
+        $user_email = $_SESSION['user_email'];
 
         if ($_SESSION['friend_user_id'] != '') {
             $user_id = $_SESSION['friend_user_id'];
             $get_users = "SELECT * FROM users join friends on users.user_id = friends.requestReceiverID and verified='yes' 
-                where friends.requestSenderID = '$user_id' and user_name like '%$friend_name%' AND profile_is_private = 0";
+                where friends.requestSenderID = '$user_id' and user_name like '%$friend_name%' AND profile_is_private = 0 and user_email !='$user_email'";
             $run_user = mysqli_query($con, $get_users);
 
             $_SESSION['friend_user_id'] = '';
         }
         else {
-            $get_users = "select * from users where user_name like '%$friend_name%'";
+            $get_users = "select * from users where user_name like '%$friend_name%' and user_email !='$user_email'";
             $run_user = mysqli_query($con, $get_users);
         }
 
