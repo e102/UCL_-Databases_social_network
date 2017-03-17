@@ -26,7 +26,7 @@ $run_user = mysqli_query($con, $get_user);
 $row = mysqli_fetch_array($run_user);
 $user_id = $row['user_id'];
 
-$get_posts = "select * from posts WHERE is_private = 0 LIMIT 20";
+$get_posts = "SELECT * FROM posts WHERE is_private = 0 LIMIT 20";
 $run_posts = mysqli_query($con, $get_posts);
 
 while ($row_posts = mysqli_fetch_array($run_posts)) {
