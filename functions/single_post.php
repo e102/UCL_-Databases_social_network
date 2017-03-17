@@ -26,13 +26,14 @@ if(isset($_GET['post_id'])) {
     $user_com_name = $row_com['user_name'];
 
     echo "
+
     <div id='posts'>
     
-    <p style='padding-left:20px'><img src='user/user_images/$user_image' width='50' height='50' border-radius='50px'></p>
-    <h3><a style='padding-left:20px' href='user_profile.php?u_id=$user_id'>$user_name </a></h3>
-    <h3 style='padding-left:20px'>$post_title</h3>
-    <p style='padding-left:20px'>$post_date</p>
-    <p style='padding-left:20px'>$content</p>
+    <p><img src='user/user_images/$user_image' width='50' height='50' border-radius='50px'></p>
+    <h3><a href='user_profile.php?u_id=$user_id'>$user_name </a></h3>
+    <h3>$post_title</h3>
+    <p>$post_date</p>
+    <p>$content</p>
     
     
     </div></br>

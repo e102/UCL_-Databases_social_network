@@ -316,10 +316,10 @@ function getBlogs() {
       $run_friends = mysqli_query($con, $get_friends);
 
       while ($row_friends = mysqli_fetch_array($run_friends)) {
-            echo "<script>alert('sajhfg')</script>";
+
           $friend_id = $row_friends['requestReceiverID'];
 
-          $get_blog = "SELECT * FROM posts WHERE post_title LIKE '%$blog_query' and user_id = '$friend_id'";
+          $get_blog = "SELECT * FROM posts WHERE post_title LIKE '%$blog_query%' and user_id = '$friend_id'";
           $run_blog = mysqli_query($con, $get_blog);
 
           while ($row_blog = mysqli_fetch_array($run_blog)) {
@@ -347,7 +347,7 @@ function getBlogs() {
               <p>$post_date</p>
               <p>$content</p>
               <div>
-              <a href='single.php?post_id=$post_id'>
+              <a href='single_post.php?post_id=$post_id'>
                   <button class='btn-white btn-small' >View</button> </a>
               </div>
               </div>";

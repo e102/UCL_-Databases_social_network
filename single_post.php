@@ -19,9 +19,9 @@ else {
         </div>
         <!-- user timeline ends -->
         <!-- content timeline starts -->
-        <div id="content_timeline" style='padding: 20px;'>
+        <div id="content_timeline">
             <?php
-            include("functions/single_post.php");
+                include("functions/single_post.php");
             ?>
         </div>
         <!-- content timeline ends -->

@@ -10,7 +10,7 @@ while ($row = mysqli_fetch_array($run_com)) {
     $date = $row['date'];
 
     echo "
-    <div id='comments'>
+    <div id='posts'>
     <h3>$com_name</h3><span style='color: black'>Posted on $date</span>
     <p>$com</p>
     </div>
